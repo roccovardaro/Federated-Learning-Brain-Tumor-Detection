@@ -1,5 +1,7 @@
 import tensorflow as tf
-import matplotlib.pyplot as plt
+
+
+
 img_height, img_width = 224, 224
 batch_size = 8
 dataset_dir = 'data'

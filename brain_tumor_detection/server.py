@@ -1,4 +1,3 @@
-
 import model as mod
 import os
 import flwr as fl
