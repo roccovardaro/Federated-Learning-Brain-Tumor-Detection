@@ -1,0 +1,435 @@
+[2024-07-23 12:22:02,369][flwr][INFO] - Starting Flower simulation, config: num_rounds=10, no round_timeout
+[2024-07-23 12:22:04,512][flwr][INFO] - Flower VCE: Ray initialized with resources: {'memory': 2668943771.0, 'CPU': 8.0, 'node:__internal_head__': 1.0, 'object_store_memory': 1334471884.0, 'node:127.0.0.1': 1.0}
+[2024-07-23 12:22:04,512][flwr][INFO] - Optimize your simulation with Flower VCE: https://flower.ai/docs/framework/how-to-run-simulations.html
+[2024-07-23 12:22:04,513][flwr][INFO] - Flower VCE: Resources for each Virtual Client: {'num_cpus': 2, 'num_gpus': 0.0}
+[2024-07-23 12:22:04,521][flwr][INFO] - Flower VCE: Creating VirtualClientEngineActorPool with 4 actors
+[2024-07-23 12:22:04,521][flwr][INFO] - [INIT]
+[2024-07-23 12:22:04,521][flwr][INFO] - Requesting initial parameters from one random client
+[2024-07-23 12:22:06,028][flwr][INFO] - Received initial parameters from one random client
+[2024-07-23 12:22:06,028][flwr][INFO] - Evaluating initial global parameters
+[2024-07-23 12:22:06,739][flwr][INFO] - initial parameters (loss, other metrics): 182.73037242889404, {'accuracy': 0.1161}
+[2024-07-23 12:22:06,740][flwr][INFO] - 
+[2024-07-23 12:22:06,740][flwr][INFO] - [ROUND 1]
+[2024-07-23 12:22:06,740][flwr][INFO] - configure_fit: strategy sampled 10 clients (out of 100)
+[2024-07-23 12:22:18,369][flwr][INFO] - aggregate_fit: received 10 results and 0 failures
+[2024-07-23 12:22:18,374][flwr][WARNING] - No fit_metrics_aggregation_fn provided
+[2024-07-23 12:22:19,096][flwr][INFO] - fit progress: (1, 179.44199442863464, {'accuracy': 0.1046}, 12.356504790999999)
+[2024-07-23 12:22:19,096][flwr][INFO] - configure_evaluate: no clients selected, skipping evaluation
+[2024-07-23 12:22:19,096][flwr][INFO] - 
+[2024-07-23 12:22:19,096][flwr][INFO] - [ROUND 2]
+[2024-07-23 12:22:19,097][flwr][INFO] - configure_fit: strategy sampled 10 clients (out of 100)
+[2024-07-23 12:22:29,860][flwr][INFO] - aggregate_fit: received 10 results and 0 failures
+[2024-07-23 12:22:30,570][flwr][INFO] - fit progress: (2, 164.33132362365723, {'accuracy': 0.4559}, 23.8307715)
+[2024-07-23 12:22:30,571][flwr][INFO] - configure_evaluate: no clients selected, skipping evaluation
+[2024-07-23 12:22:30,571][flwr][INFO] - 
+[2024-07-23 12:22:30,571][flwr][INFO] - [ROUND 3]
+[2024-07-23 12:22:30,571][flwr][INFO] - configure_fit: strategy sampled 10 clients (out of 100)
+[2024-07-23 12:22:34,660][flwr][ERROR] - The actor died unexpectedly before finishing this task.
+	class_name: ClientAppActor
+	actor_id: e6403a598f9921648620f22101000000
+	pid: 15190
+	namespace: 455da279-86f9-4022-aa95-b7ce976902ad
+	ip: 127.0.0.1
+The actor is dead because its worker process has died. Worker exit type: SYSTEM_ERROR Worker exit detail: Worker unexpectedly exits with a connection error code 2. End of file. There are some potential root causes. (1) The process is killed by SIGKILL by OOM killer due to high memory usage. (2) ray stop --force is called. (3) The worker is crashed unexpectedly due to SIGSEGV or other unexpected errors.
+[2024-07-23 12:22:34,691][flwr][WARNING] - Actor(e6403a598f9921648620f22101000000) will be remove from pool.
+[2024-07-23 12:22:34,699][flwr][ERROR] - The actor died unexpectedly before finishing this task.
+	class_name: ClientAppActor
+	actor_id: f55941b66e14266f3c2086d401000000
+	pid: 15188
+	namespace: 455da279-86f9-4022-aa95-b7ce976902ad
+	ip: 127.0.0.1
+The actor is dead because its worker process has died. Worker exit type: SYSTEM_ERROR Worker exit detail: Worker unexpectedly exits with a connection error code 2. End of file. There are some potential root causes. (1) The process is killed by SIGKILL by OOM killer due to high memory usage. (2) ray stop --force is called. (3) The worker is crashed unexpectedly due to SIGSEGV or other unexpected errors.
+[2024-07-23 12:22:34,699][flwr][ERROR] - The actor died unexpectedly before finishing this task.
+	class_name: ClientAppActor
+	actor_id: e6403a598f9921648620f22101000000
+	pid: 15190
+	namespace: 455da279-86f9-4022-aa95-b7ce976902ad
+	ip: 127.0.0.1
+The actor is dead because its worker process has died. Worker exit type: SYSTEM_ERROR Worker exit detail: Worker unexpectedly exits with a connection error code 2. End of file. There are some potential root causes. (1) The process is killed by SIGKILL by OOM killer due to high memory usage. (2) ray stop --force is called. (3) The worker is crashed unexpectedly due to SIGSEGV or other unexpected errors.
+[2024-07-23 12:22:34,720][flwr][ERROR] - Traceback (most recent call last):
+  File "/Users/roccopiovardaro/Desktop/PythonProjects/pythonProject3/.venv/lib/python3.9/site-packages/flwr/simulation/ray_transport/ray_client_proxy.py", line 73, in _submit_job
+    out_mssg, updated_context = self.actor_pool.get_client_result(
+  File "/Users/roccopiovardaro/Desktop/PythonProjects/pythonProject3/.venv/lib/python3.9/site-packages/flwr/simulation/ray_transport/ray_actor.py", line 399, in get_client_result
+    return self._fetch_future_result(cid)
+  File "/Users/roccopiovardaro/Desktop/PythonProjects/pythonProject3/.venv/lib/python3.9/site-packages/flwr/simulation/ray_transport/ray_actor.py", line 289, in _fetch_future_result
+    raise ex
+  File "/Users/roccopiovardaro/Desktop/PythonProjects/pythonProject3/.venv/lib/python3.9/site-packages/flwr/simulation/ray_transport/ray_actor.py", line 280, in _fetch_future_result
+    res_cid, out_mssg, updated_context = ray.get(
+  File "/Users/roccopiovardaro/Desktop/PythonProjects/pythonProject3/.venv/lib/python3.9/site-packages/ray/_private/auto_init_hook.py", line 21, in auto_init_wrapper
+    return fn(*args, **kwargs)
+  File "/Users/roccopiovardaro/Desktop/PythonProjects/pythonProject3/.venv/lib/python3.9/site-packages/ray/_private/client_mode_hook.py", line 103, in wrapper
+    return func(*args, **kwargs)
+  File "/Users/roccopiovardaro/Desktop/PythonProjects/pythonProject3/.venv/lib/python3.9/site-packages/ray/_private/worker.py", line 2667, in get
+    values, debugger_breakpoint = worker.get_objects(object_refs, timeout=timeout)
+  File "/Users/roccopiovardaro/Desktop/PythonProjects/pythonProject3/.venv/lib/python3.9/site-packages/ray/_private/worker.py", line 866, in get_objects
+    raise value
+ray.exceptions.RayActorError: The actor died unexpectedly before finishing this task.
+	class_name: ClientAppActor
+	actor_id: e6403a598f9921648620f22101000000
+	pid: 15190
+	namespace: 455da279-86f9-4022-aa95-b7ce976902ad
+	ip: 127.0.0.1
+The actor is dead because its worker process has died. Worker exit type: SYSTEM_ERROR Worker exit detail: Worker unexpectedly exits with a connection error code 2. End of file. There are some potential root causes. (1) The process is killed by SIGKILL by OOM killer due to high memory usage. (2) ray stop --force is called. (3) The worker is crashed unexpectedly due to SIGSEGV or other unexpected errors.
+
+[2024-07-23 12:22:34,720][flwr][WARNING] - REMOVED actor e6403a598f9921648620f22101000000 from pool
+[2024-07-23 12:22:34,720][flwr][ERROR] - The actor died unexpectedly before finishing this task.
+	class_name: ClientAppActor
+	actor_id: e6403a598f9921648620f22101000000
+	pid: 15190
+	namespace: 455da279-86f9-4022-aa95-b7ce976902ad
+	ip: 127.0.0.1
+The actor is dead because its worker process has died. Worker exit type: SYSTEM_ERROR Worker exit detail: Worker unexpectedly exits with a connection error code 2. End of file. There are some potential root causes. (1) The process is killed by SIGKILL by OOM killer due to high memory usage. (2) ray stop --force is called. (3) The worker is crashed unexpectedly due to SIGSEGV or other unexpected errors.
+[2024-07-23 12:22:34,720][flwr][WARNING] - Pool size: 3
+[2024-07-23 12:22:34,739][flwr][ERROR] - The actor died unexpectedly before finishing this task.
+	class_name: ClientAppActor
+	actor_id: e6403a598f9921648620f22101000000
+	pid: 15190
+	namespace: 455da279-86f9-4022-aa95-b7ce976902ad
+	ip: 127.0.0.1
+The actor is dead because its worker process has died. Worker exit type: SYSTEM_ERROR Worker exit detail: Worker unexpectedly exits with a connection error code 2. End of file. There are some potential root causes. (1) The process is killed by SIGKILL by OOM killer due to high memory usage. (2) ray stop --force is called. (3) The worker is crashed unexpectedly due to SIGSEGV or other unexpected errors.
+[2024-07-23 12:22:34,739][flwr][WARNING] - Actor(f55941b66e14266f3c2086d401000000) will be remove from pool.
+[2024-07-23 12:22:34,739][flwr][ERROR] - The actor died unexpectedly before finishing this task.
+	class_name: ClientAppActor
+	actor_id: 7f5562eb7a123b70b16ed86301000000
+	pid: 15189
+	namespace: 455da279-86f9-4022-aa95-b7ce976902ad
+	ip: 127.0.0.1
+The actor is dead because its worker process has died. Worker exit type: SYSTEM_ERROR Worker exit detail: Worker unexpectedly exits with a connection error code 2. End of file. There are some potential root causes. (1) The process is killed by SIGKILL by OOM killer due to high memory usage. (2) ray stop --force is called. (3) The worker is crashed unexpectedly due to SIGSEGV or other unexpected errors.
+[2024-07-23 12:22:34,739][flwr][ERROR] - The actor died unexpectedly before finishing this task.
+	class_name: ClientAppActor
+	actor_id: f55941b66e14266f3c2086d401000000
+	pid: 15188
+	namespace: 455da279-86f9-4022-aa95-b7ce976902ad
+	ip: 127.0.0.1
+The actor is dead because its worker process has died. Worker exit type: SYSTEM_ERROR Worker exit detail: Worker unexpectedly exits with a connection error code 2. End of file. There are some potential root causes. (1) The process is killed by SIGKILL by OOM killer due to high memory usage. (2) ray stop --force is called. (3) The worker is crashed unexpectedly due to SIGSEGV or other unexpected errors.
+[2024-07-23 12:22:34,739][flwr][WARNING] - Actor(e6403a598f9921648620f22101000000) will be remove from pool.
+[2024-07-23 12:22:34,739][flwr][ERROR] - Traceback (most recent call last):
+  File "/Users/roccopiovardaro/Desktop/PythonProjects/pythonProject3/.venv/lib/python3.9/site-packages/flwr/simulation/ray_transport/ray_client_proxy.py", line 73, in _submit_job
+    out_mssg, updated_context = self.actor_pool.get_client_result(
+  File "/Users/roccopiovardaro/Desktop/PythonProjects/pythonProject3/.venv/lib/python3.9/site-packages/flwr/simulation/ray_transport/ray_actor.py", line 399, in get_client_result
+    return self._fetch_future_result(cid)
+  File "/Users/roccopiovardaro/Desktop/PythonProjects/pythonProject3/.venv/lib/python3.9/site-packages/flwr/simulation/ray_transport/ray_actor.py", line 289, in _fetch_future_result
+    raise ex
+  File "/Users/roccopiovardaro/Desktop/PythonProjects/pythonProject3/.venv/lib/python3.9/site-packages/flwr/simulation/ray_transport/ray_actor.py", line 280, in _fetch_future_result
+    res_cid, out_mssg, updated_context = ray.get(
+  File "/Users/roccopiovardaro/Desktop/PythonProjects/pythonProject3/.venv/lib/python3.9/site-packages/ray/_private/auto_init_hook.py", line 21, in auto_init_wrapper
+    return fn(*args, **kwargs)
+  File "/Users/roccopiovardaro/Desktop/PythonProjects/pythonProject3/.venv/lib/python3.9/site-packages/ray/_private/client_mode_hook.py", line 103, in wrapper
+    return func(*args, **kwargs)
+  File "/Users/roccopiovardaro/Desktop/PythonProjects/pythonProject3/.venv/lib/python3.9/site-packages/ray/_private/worker.py", line 2667, in get
+    values, debugger_breakpoint = worker.get_objects(object_refs, timeout=timeout)
+  File "/Users/roccopiovardaro/Desktop/PythonProjects/pythonProject3/.venv/lib/python3.9/site-packages/ray/_private/worker.py", line 866, in get_objects
+    raise value
+ray.exceptions.RayActorError: The actor died unexpectedly before finishing this task.
+	class_name: ClientAppActor
+	actor_id: f55941b66e14266f3c2086d401000000
+	pid: 15188
+	namespace: 455da279-86f9-4022-aa95-b7ce976902ad
+	ip: 127.0.0.1
+The actor is dead because its worker process has died. Worker exit type: SYSTEM_ERROR Worker exit detail: Worker unexpectedly exits with a connection error code 2. End of file. There are some potential root causes. (1) The process is killed by SIGKILL by OOM killer due to high memory usage. (2) ray stop --force is called. (3) The worker is crashed unexpectedly due to SIGSEGV or other unexpected errors.
+
+[2024-07-23 12:22:34,740][flwr][ERROR] - The actor died unexpectedly before finishing this task.
+	class_name: ClientAppActor
+	actor_id: f55941b66e14266f3c2086d401000000
+	pid: 15188
+	namespace: 455da279-86f9-4022-aa95-b7ce976902ad
+	ip: 127.0.0.1
+The actor is dead because its worker process has died. Worker exit type: SYSTEM_ERROR Worker exit detail: Worker unexpectedly exits with a connection error code 2. End of file. There are some potential root causes. (1) The process is killed by SIGKILL by OOM killer due to high memory usage. (2) ray stop --force is called. (3) The worker is crashed unexpectedly due to SIGSEGV or other unexpected errors.
+[2024-07-23 12:22:34,740][flwr][ERROR] - Traceback (most recent call last):
+  File "/Users/roccopiovardaro/Desktop/PythonProjects/pythonProject3/.venv/lib/python3.9/site-packages/flwr/simulation/ray_transport/ray_client_proxy.py", line 73, in _submit_job
+    out_mssg, updated_context = self.actor_pool.get_client_result(
+  File "/Users/roccopiovardaro/Desktop/PythonProjects/pythonProject3/.venv/lib/python3.9/site-packages/flwr/simulation/ray_transport/ray_actor.py", line 399, in get_client_result
+    return self._fetch_future_result(cid)
+  File "/Users/roccopiovardaro/Desktop/PythonProjects/pythonProject3/.venv/lib/python3.9/site-packages/flwr/simulation/ray_transport/ray_actor.py", line 289, in _fetch_future_result
+    raise ex
+  File "/Users/roccopiovardaro/Desktop/PythonProjects/pythonProject3/.venv/lib/python3.9/site-packages/flwr/simulation/ray_transport/ray_actor.py", line 280, in _fetch_future_result
+    res_cid, out_mssg, updated_context = ray.get(
+  File "/Users/roccopiovardaro/Desktop/PythonProjects/pythonProject3/.venv/lib/python3.9/site-packages/ray/_private/auto_init_hook.py", line 21, in auto_init_wrapper
+    return fn(*args, **kwargs)
+  File "/Users/roccopiovardaro/Desktop/PythonProjects/pythonProject3/.venv/lib/python3.9/site-packages/ray/_private/client_mode_hook.py", line 103, in wrapper
+    return func(*args, **kwargs)
+  File "/Users/roccopiovardaro/Desktop/PythonProjects/pythonProject3/.venv/lib/python3.9/site-packages/ray/_private/worker.py", line 2667, in get
+    values, debugger_breakpoint = worker.get_objects(object_refs, timeout=timeout)
+  File "/Users/roccopiovardaro/Desktop/PythonProjects/pythonProject3/.venv/lib/python3.9/site-packages/ray/_private/worker.py", line 866, in get_objects
+    raise value
+ray.exceptions.RayActorError: The actor died unexpectedly before finishing this task.
+	class_name: ClientAppActor
+	actor_id: e6403a598f9921648620f22101000000
+	pid: 15190
+	namespace: 455da279-86f9-4022-aa95-b7ce976902ad
+	ip: 127.0.0.1
+The actor is dead because its worker process has died. Worker exit type: SYSTEM_ERROR Worker exit detail: Worker unexpectedly exits with a connection error code 2. End of file. There are some potential root causes. (1) The process is killed by SIGKILL by OOM killer due to high memory usage. (2) ray stop --force is called. (3) The worker is crashed unexpectedly due to SIGSEGV or other unexpected errors.
+
+[2024-07-23 12:22:34,740][flwr][ERROR] - The actor died unexpectedly before finishing this task.
+	class_name: ClientAppActor
+	actor_id: e6403a598f9921648620f22101000000
+	pid: 15190
+	namespace: 455da279-86f9-4022-aa95-b7ce976902ad
+	ip: 127.0.0.1
+The actor is dead because its worker process has died. Worker exit type: SYSTEM_ERROR Worker exit detail: Worker unexpectedly exits with a connection error code 2. End of file. There are some potential root causes. (1) The process is killed by SIGKILL by OOM killer due to high memory usage. (2) ray stop --force is called. (3) The worker is crashed unexpectedly due to SIGSEGV or other unexpected errors.
+[2024-07-23 12:22:34,766][flwr][WARNING] - Actor(e6403a598f9921648620f22101000000) will be remove from pool.
+[2024-07-23 12:22:34,766][flwr][ERROR] - The actor died unexpectedly before finishing this task.
+	class_name: ClientAppActor
+	actor_id: b5b2084310aabe55c6f4ddb601000000
+	pid: 15187
+	namespace: 455da279-86f9-4022-aa95-b7ce976902ad
+	ip: 127.0.0.1
+The actor is dead because its worker process has died. Worker exit type: SYSTEM_ERROR Worker exit detail: Worker unexpectedly exits with a connection error code 2. End of file. There are some potential root causes. (1) The process is killed by SIGKILL by OOM killer due to high memory usage. (2) ray stop --force is called. (3) The worker is crashed unexpectedly due to SIGSEGV or other unexpected errors.
+[2024-07-23 12:22:34,766][flwr][WARNING] - Actor(7f5562eb7a123b70b16ed86301000000) will be remove from pool.
+[2024-07-23 12:22:34,766][flwr][ERROR] - Traceback (most recent call last):
+  File "/Users/roccopiovardaro/Desktop/PythonProjects/pythonProject3/.venv/lib/python3.9/site-packages/flwr/simulation/ray_transport/ray_client_proxy.py", line 73, in _submit_job
+    out_mssg, updated_context = self.actor_pool.get_client_result(
+  File "/Users/roccopiovardaro/Desktop/PythonProjects/pythonProject3/.venv/lib/python3.9/site-packages/flwr/simulation/ray_transport/ray_actor.py", line 399, in get_client_result
+    return self._fetch_future_result(cid)
+  File "/Users/roccopiovardaro/Desktop/PythonProjects/pythonProject3/.venv/lib/python3.9/site-packages/flwr/simulation/ray_transport/ray_actor.py", line 289, in _fetch_future_result
+    raise ex
+  File "/Users/roccopiovardaro/Desktop/PythonProjects/pythonProject3/.venv/lib/python3.9/site-packages/flwr/simulation/ray_transport/ray_actor.py", line 280, in _fetch_future_result
+    res_cid, out_mssg, updated_context = ray.get(
+  File "/Users/roccopiovardaro/Desktop/PythonProjects/pythonProject3/.venv/lib/python3.9/site-packages/ray/_private/auto_init_hook.py", line 21, in auto_init_wrapper
+    return fn(*args, **kwargs)
+  File "/Users/roccopiovardaro/Desktop/PythonProjects/pythonProject3/.venv/lib/python3.9/site-packages/ray/_private/client_mode_hook.py", line 103, in wrapper
+    return func(*args, **kwargs)
+  File "/Users/roccopiovardaro/Desktop/PythonProjects/pythonProject3/.venv/lib/python3.9/site-packages/ray/_private/worker.py", line 2667, in get
+    values, debugger_breakpoint = worker.get_objects(object_refs, timeout=timeout)
+  File "/Users/roccopiovardaro/Desktop/PythonProjects/pythonProject3/.venv/lib/python3.9/site-packages/ray/_private/worker.py", line 866, in get_objects
+    raise value
+ray.exceptions.RayActorError: The actor died unexpectedly before finishing this task.
+	class_name: ClientAppActor
+	actor_id: 7f5562eb7a123b70b16ed86301000000
+	pid: 15189
+	namespace: 455da279-86f9-4022-aa95-b7ce976902ad
+	ip: 127.0.0.1
+The actor is dead because its worker process has died. Worker exit type: SYSTEM_ERROR Worker exit detail: Worker unexpectedly exits with a connection error code 2. End of file. There are some potential root causes. (1) The process is killed by SIGKILL by OOM killer due to high memory usage. (2) ray stop --force is called. (3) The worker is crashed unexpectedly due to SIGSEGV or other unexpected errors.
+
+[2024-07-23 12:22:34,767][flwr][ERROR] - Traceback (most recent call last):
+  File "/Users/roccopiovardaro/Desktop/PythonProjects/pythonProject3/.venv/lib/python3.9/site-packages/flwr/simulation/ray_transport/ray_client_proxy.py", line 73, in _submit_job
+    out_mssg, updated_context = self.actor_pool.get_client_result(
+  File "/Users/roccopiovardaro/Desktop/PythonProjects/pythonProject3/.venv/lib/python3.9/site-packages/flwr/simulation/ray_transport/ray_actor.py", line 399, in get_client_result
+    return self._fetch_future_result(cid)
+  File "/Users/roccopiovardaro/Desktop/PythonProjects/pythonProject3/.venv/lib/python3.9/site-packages/flwr/simulation/ray_transport/ray_actor.py", line 289, in _fetch_future_result
+    raise ex
+  File "/Users/roccopiovardaro/Desktop/PythonProjects/pythonProject3/.venv/lib/python3.9/site-packages/flwr/simulation/ray_transport/ray_actor.py", line 280, in _fetch_future_result
+    res_cid, out_mssg, updated_context = ray.get(
+  File "/Users/roccopiovardaro/Desktop/PythonProjects/pythonProject3/.venv/lib/python3.9/site-packages/ray/_private/auto_init_hook.py", line 21, in auto_init_wrapper
+    return fn(*args, **kwargs)
+  File "/Users/roccopiovardaro/Desktop/PythonProjects/pythonProject3/.venv/lib/python3.9/site-packages/ray/_private/client_mode_hook.py", line 103, in wrapper
+    return func(*args, **kwargs)
+  File "/Users/roccopiovardaro/Desktop/PythonProjects/pythonProject3/.venv/lib/python3.9/site-packages/ray/_private/worker.py", line 2667, in get
+    values, debugger_breakpoint = worker.get_objects(object_refs, timeout=timeout)
+  File "/Users/roccopiovardaro/Desktop/PythonProjects/pythonProject3/.venv/lib/python3.9/site-packages/ray/_private/worker.py", line 866, in get_objects
+    raise value
+ray.exceptions.RayActorError: The actor died unexpectedly before finishing this task.
+	class_name: ClientAppActor
+	actor_id: e6403a598f9921648620f22101000000
+	pid: 15190
+	namespace: 455da279-86f9-4022-aa95-b7ce976902ad
+	ip: 127.0.0.1
+The actor is dead because its worker process has died. Worker exit type: SYSTEM_ERROR Worker exit detail: Worker unexpectedly exits with a connection error code 2. End of file. There are some potential root causes. (1) The process is killed by SIGKILL by OOM killer due to high memory usage. (2) ray stop --force is called. (3) The worker is crashed unexpectedly due to SIGSEGV or other unexpected errors.
+
+[2024-07-23 12:22:34,767][flwr][ERROR] - The actor died unexpectedly before finishing this task.
+	class_name: ClientAppActor
+	actor_id: 7f5562eb7a123b70b16ed86301000000
+	pid: 15189
+	namespace: 455da279-86f9-4022-aa95-b7ce976902ad
+	ip: 127.0.0.1
+The actor is dead because its worker process has died. Worker exit type: SYSTEM_ERROR Worker exit detail: Worker unexpectedly exits with a connection error code 2. End of file. There are some potential root causes. (1) The process is killed by SIGKILL by OOM killer due to high memory usage. (2) ray stop --force is called. (3) The worker is crashed unexpectedly due to SIGSEGV or other unexpected errors.
+[2024-07-23 12:22:34,767][flwr][ERROR] - The actor died unexpectedly before finishing this task.
+	class_name: ClientAppActor
+	actor_id: e6403a598f9921648620f22101000000
+	pid: 15190
+	namespace: 455da279-86f9-4022-aa95-b7ce976902ad
+	ip: 127.0.0.1
+The actor is dead because its worker process has died. Worker exit type: SYSTEM_ERROR Worker exit detail: Worker unexpectedly exits with a connection error code 2. End of file. There are some potential root causes. (1) The process is killed by SIGKILL by OOM killer due to high memory usage. (2) ray stop --force is called. (3) The worker is crashed unexpectedly due to SIGSEGV or other unexpected errors.
+[2024-07-23 12:22:34,767][flwr][WARNING] - REMOVED actor 7f5562eb7a123b70b16ed86301000000 from pool
+[2024-07-23 12:22:34,767][flwr][WARNING] - Pool size: 2
+[2024-07-23 12:22:34,767][flwr][ERROR] - The actor died unexpectedly before finishing this task.
+	class_name: ClientAppActor
+	actor_id: 7f5562eb7a123b70b16ed86301000000
+	pid: 15189
+	namespace: 455da279-86f9-4022-aa95-b7ce976902ad
+	ip: 127.0.0.1
+The actor is dead because its worker process has died. Worker exit type: SYSTEM_ERROR Worker exit detail: Worker unexpectedly exits with a connection error code 2. End of file. There are some potential root causes. (1) The process is killed by SIGKILL by OOM killer due to high memory usage. (2) ray stop --force is called. (3) The worker is crashed unexpectedly due to SIGSEGV or other unexpected errors.
+[2024-07-23 12:22:34,768][flwr][WARNING] - REMOVED actor f55941b66e14266f3c2086d401000000 from pool
+[2024-07-23 12:22:34,768][flwr][WARNING] - Pool size: 1
+[2024-07-23 12:22:34,768][flwr][ERROR] - The actor died unexpectedly before finishing this task.
+	class_name: ClientAppActor
+	actor_id: f55941b66e14266f3c2086d401000000
+	pid: 15188
+	namespace: 455da279-86f9-4022-aa95-b7ce976902ad
+	ip: 127.0.0.1
+The actor is dead because its worker process has died. Worker exit type: SYSTEM_ERROR Worker exit detail: Worker unexpectedly exits with a connection error code 2. End of file. There are some potential root causes. (1) The process is killed by SIGKILL by OOM killer due to high memory usage. (2) ray stop --force is called. (3) The worker is crashed unexpectedly due to SIGSEGV or other unexpected errors.
+[2024-07-23 12:22:34,768][flwr][WARNING] - Actor(b5b2084310aabe55c6f4ddb601000000) will be remove from pool.
+[2024-07-23 12:22:34,768][flwr][WARNING] - Actor(7f5562eb7a123b70b16ed86301000000) will be remove from pool.
+[2024-07-23 12:22:34,768][flwr][WARNING] - Actor(f55941b66e14266f3c2086d401000000) will be remove from pool.
+[2024-07-23 12:22:34,768][flwr][WARNING] - Actor(f55941b66e14266f3c2086d401000000) will be remove from pool.
+[2024-07-23 12:22:34,769][flwr][ERROR] - Traceback (most recent call last):
+  File "/Users/roccopiovardaro/Desktop/PythonProjects/pythonProject3/.venv/lib/python3.9/site-packages/flwr/simulation/ray_transport/ray_client_proxy.py", line 73, in _submit_job
+    out_mssg, updated_context = self.actor_pool.get_client_result(
+  File "/Users/roccopiovardaro/Desktop/PythonProjects/pythonProject3/.venv/lib/python3.9/site-packages/flwr/simulation/ray_transport/ray_actor.py", line 399, in get_client_result
+    return self._fetch_future_result(cid)
+  File "/Users/roccopiovardaro/Desktop/PythonProjects/pythonProject3/.venv/lib/python3.9/site-packages/flwr/simulation/ray_transport/ray_actor.py", line 289, in _fetch_future_result
+    raise ex
+  File "/Users/roccopiovardaro/Desktop/PythonProjects/pythonProject3/.venv/lib/python3.9/site-packages/flwr/simulation/ray_transport/ray_actor.py", line 280, in _fetch_future_result
+    res_cid, out_mssg, updated_context = ray.get(
+  File "/Users/roccopiovardaro/Desktop/PythonProjects/pythonProject3/.venv/lib/python3.9/site-packages/ray/_private/auto_init_hook.py", line 21, in auto_init_wrapper
+    return fn(*args, **kwargs)
+  File "/Users/roccopiovardaro/Desktop/PythonProjects/pythonProject3/.venv/lib/python3.9/site-packages/ray/_private/client_mode_hook.py", line 103, in wrapper
+    return func(*args, **kwargs)
+  File "/Users/roccopiovardaro/Desktop/PythonProjects/pythonProject3/.venv/lib/python3.9/site-packages/ray/_private/worker.py", line 2667, in get
+    values, debugger_breakpoint = worker.get_objects(object_refs, timeout=timeout)
+  File "/Users/roccopiovardaro/Desktop/PythonProjects/pythonProject3/.venv/lib/python3.9/site-packages/ray/_private/worker.py", line 866, in get_objects
+    raise value
+ray.exceptions.RayActorError: The actor died unexpectedly before finishing this task.
+	class_name: ClientAppActor
+	actor_id: f55941b66e14266f3c2086d401000000
+	pid: 15188
+	namespace: 455da279-86f9-4022-aa95-b7ce976902ad
+	ip: 127.0.0.1
+The actor is dead because its worker process has died. Worker exit type: SYSTEM_ERROR Worker exit detail: Worker unexpectedly exits with a connection error code 2. End of file. There are some potential root causes. (1) The process is killed by SIGKILL by OOM killer due to high memory usage. (2) ray stop --force is called. (3) The worker is crashed unexpectedly due to SIGSEGV or other unexpected errors.
+
+[2024-07-23 12:22:34,769][flwr][ERROR] - Traceback (most recent call last):
+  File "/Users/roccopiovardaro/Desktop/PythonProjects/pythonProject3/.venv/lib/python3.9/site-packages/flwr/simulation/ray_transport/ray_client_proxy.py", line 73, in _submit_job
+    out_mssg, updated_context = self.actor_pool.get_client_result(
+  File "/Users/roccopiovardaro/Desktop/PythonProjects/pythonProject3/.venv/lib/python3.9/site-packages/flwr/simulation/ray_transport/ray_actor.py", line 399, in get_client_result
+    return self._fetch_future_result(cid)
+  File "/Users/roccopiovardaro/Desktop/PythonProjects/pythonProject3/.venv/lib/python3.9/site-packages/flwr/simulation/ray_transport/ray_actor.py", line 289, in _fetch_future_result
+    raise ex
+  File "/Users/roccopiovardaro/Desktop/PythonProjects/pythonProject3/.venv/lib/python3.9/site-packages/flwr/simulation/ray_transport/ray_actor.py", line 280, in _fetch_future_result
+    res_cid, out_mssg, updated_context = ray.get(
+  File "/Users/roccopiovardaro/Desktop/PythonProjects/pythonProject3/.venv/lib/python3.9/site-packages/ray/_private/auto_init_hook.py", line 21, in auto_init_wrapper
+    return fn(*args, **kwargs)
+  File "/Users/roccopiovardaro/Desktop/PythonProjects/pythonProject3/.venv/lib/python3.9/site-packages/ray/_private/client_mode_hook.py", line 103, in wrapper
+    return func(*args, **kwargs)
+  File "/Users/roccopiovardaro/Desktop/PythonProjects/pythonProject3/.venv/lib/python3.9/site-packages/ray/_private/worker.py", line 2667, in get
+    values, debugger_breakpoint = worker.get_objects(object_refs, timeout=timeout)
+  File "/Users/roccopiovardaro/Desktop/PythonProjects/pythonProject3/.venv/lib/python3.9/site-packages/ray/_private/worker.py", line 866, in get_objects
+    raise value
+ray.exceptions.RayActorError: The actor died unexpectedly before finishing this task.
+	class_name: ClientAppActor
+	actor_id: b5b2084310aabe55c6f4ddb601000000
+	pid: 15187
+	namespace: 455da279-86f9-4022-aa95-b7ce976902ad
+	ip: 127.0.0.1
+The actor is dead because its worker process has died. Worker exit type: SYSTEM_ERROR Worker exit detail: Worker unexpectedly exits with a connection error code 2. End of file. There are some potential root causes. (1) The process is killed by SIGKILL by OOM killer due to high memory usage. (2) ray stop --force is called. (3) The worker is crashed unexpectedly due to SIGSEGV or other unexpected errors.
+
+[2024-07-23 12:22:34,769][flwr][ERROR] - The actor died unexpectedly before finishing this task.
+	class_name: ClientAppActor
+	actor_id: f55941b66e14266f3c2086d401000000
+	pid: 15188
+	namespace: 455da279-86f9-4022-aa95-b7ce976902ad
+	ip: 127.0.0.1
+The actor is dead because its worker process has died. Worker exit type: SYSTEM_ERROR Worker exit detail: Worker unexpectedly exits with a connection error code 2. End of file. There are some potential root causes. (1) The process is killed by SIGKILL by OOM killer due to high memory usage. (2) ray stop --force is called. (3) The worker is crashed unexpectedly due to SIGSEGV or other unexpected errors.
+[2024-07-23 12:22:34,769][flwr][ERROR] - Traceback (most recent call last):
+  File "/Users/roccopiovardaro/Desktop/PythonProjects/pythonProject3/.venv/lib/python3.9/site-packages/flwr/simulation/ray_transport/ray_client_proxy.py", line 73, in _submit_job
+    out_mssg, updated_context = self.actor_pool.get_client_result(
+  File "/Users/roccopiovardaro/Desktop/PythonProjects/pythonProject3/.venv/lib/python3.9/site-packages/flwr/simulation/ray_transport/ray_actor.py", line 399, in get_client_result
+    return self._fetch_future_result(cid)
+  File "/Users/roccopiovardaro/Desktop/PythonProjects/pythonProject3/.venv/lib/python3.9/site-packages/flwr/simulation/ray_transport/ray_actor.py", line 289, in _fetch_future_result
+    raise ex
+  File "/Users/roccopiovardaro/Desktop/PythonProjects/pythonProject3/.venv/lib/python3.9/site-packages/flwr/simulation/ray_transport/ray_actor.py", line 280, in _fetch_future_result
+    res_cid, out_mssg, updated_context = ray.get(
+  File "/Users/roccopiovardaro/Desktop/PythonProjects/pythonProject3/.venv/lib/python3.9/site-packages/ray/_private/auto_init_hook.py", line 21, in auto_init_wrapper
+    return fn(*args, **kwargs)
+  File "/Users/roccopiovardaro/Desktop/PythonProjects/pythonProject3/.venv/lib/python3.9/site-packages/ray/_private/client_mode_hook.py", line 103, in wrapper
+    return func(*args, **kwargs)
+  File "/Users/roccopiovardaro/Desktop/PythonProjects/pythonProject3/.venv/lib/python3.9/site-packages/ray/_private/worker.py", line 2667, in get
+    values, debugger_breakpoint = worker.get_objects(object_refs, timeout=timeout)
+  File "/Users/roccopiovardaro/Desktop/PythonProjects/pythonProject3/.venv/lib/python3.9/site-packages/ray/_private/worker.py", line 866, in get_objects
+    raise value
+ray.exceptions.RayActorError: The actor died unexpectedly before finishing this task.
+	class_name: ClientAppActor
+	actor_id: f55941b66e14266f3c2086d401000000
+	pid: 15188
+	namespace: 455da279-86f9-4022-aa95-b7ce976902ad
+	ip: 127.0.0.1
+The actor is dead because its worker process has died. Worker exit type: SYSTEM_ERROR Worker exit detail: Worker unexpectedly exits with a connection error code 2. End of file. There are some potential root causes. (1) The process is killed by SIGKILL by OOM killer due to high memory usage. (2) ray stop --force is called. (3) The worker is crashed unexpectedly due to SIGSEGV or other unexpected errors.
+
+[2024-07-23 12:22:34,769][flwr][ERROR] - Traceback (most recent call last):
+  File "/Users/roccopiovardaro/Desktop/PythonProjects/pythonProject3/.venv/lib/python3.9/site-packages/flwr/simulation/ray_transport/ray_client_proxy.py", line 73, in _submit_job
+    out_mssg, updated_context = self.actor_pool.get_client_result(
+  File "/Users/roccopiovardaro/Desktop/PythonProjects/pythonProject3/.venv/lib/python3.9/site-packages/flwr/simulation/ray_transport/ray_actor.py", line 399, in get_client_result
+    return self._fetch_future_result(cid)
+  File "/Users/roccopiovardaro/Desktop/PythonProjects/pythonProject3/.venv/lib/python3.9/site-packages/flwr/simulation/ray_transport/ray_actor.py", line 289, in _fetch_future_result
+    raise ex
+  File "/Users/roccopiovardaro/Desktop/PythonProjects/pythonProject3/.venv/lib/python3.9/site-packages/flwr/simulation/ray_transport/ray_actor.py", line 280, in _fetch_future_result
+    res_cid, out_mssg, updated_context = ray.get(
+  File "/Users/roccopiovardaro/Desktop/PythonProjects/pythonProject3/.venv/lib/python3.9/site-packages/ray/_private/auto_init_hook.py", line 21, in auto_init_wrapper
+    return fn(*args, **kwargs)
+  File "/Users/roccopiovardaro/Desktop/PythonProjects/pythonProject3/.venv/lib/python3.9/site-packages/ray/_private/client_mode_hook.py", line 103, in wrapper
+    return func(*args, **kwargs)
+  File "/Users/roccopiovardaro/Desktop/PythonProjects/pythonProject3/.venv/lib/python3.9/site-packages/ray/_private/worker.py", line 2667, in get
+    values, debugger_breakpoint = worker.get_objects(object_refs, timeout=timeout)
+  File "/Users/roccopiovardaro/Desktop/PythonProjects/pythonProject3/.venv/lib/python3.9/site-packages/ray/_private/worker.py", line 866, in get_objects
+    raise value
+ray.exceptions.RayActorError: The actor died unexpectedly before finishing this task.
+	class_name: ClientAppActor
+	actor_id: 7f5562eb7a123b70b16ed86301000000
+	pid: 15189
+	namespace: 455da279-86f9-4022-aa95-b7ce976902ad
+	ip: 127.0.0.1
+The actor is dead because its worker process has died. Worker exit type: SYSTEM_ERROR Worker exit detail: Worker unexpectedly exits with a connection error code 2. End of file. There are some potential root causes. (1) The process is killed by SIGKILL by OOM killer due to high memory usage. (2) ray stop --force is called. (3) The worker is crashed unexpectedly due to SIGSEGV or other unexpected errors.
+
+[2024-07-23 12:22:34,769][flwr][WARNING] - REMOVED actor b5b2084310aabe55c6f4ddb601000000 from pool
+[2024-07-23 12:22:34,769][flwr][ERROR] - The actor died unexpectedly before finishing this task.
+	class_name: ClientAppActor
+	actor_id: b5b2084310aabe55c6f4ddb601000000
+	pid: 15187
+	namespace: 455da279-86f9-4022-aa95-b7ce976902ad
+	ip: 127.0.0.1
+The actor is dead because its worker process has died. Worker exit type: SYSTEM_ERROR Worker exit detail: Worker unexpectedly exits with a connection error code 2. End of file. There are some potential root causes. (1) The process is killed by SIGKILL by OOM killer due to high memory usage. (2) ray stop --force is called. (3) The worker is crashed unexpectedly due to SIGSEGV or other unexpected errors.
+[2024-07-23 12:22:34,769][flwr][ERROR] - The actor died unexpectedly before finishing this task.
+	class_name: ClientAppActor
+	actor_id: f55941b66e14266f3c2086d401000000
+	pid: 15188
+	namespace: 455da279-86f9-4022-aa95-b7ce976902ad
+	ip: 127.0.0.1
+The actor is dead because its worker process has died. Worker exit type: SYSTEM_ERROR Worker exit detail: Worker unexpectedly exits with a connection error code 2. End of file. There are some potential root causes. (1) The process is killed by SIGKILL by OOM killer due to high memory usage. (2) ray stop --force is called. (3) The worker is crashed unexpectedly due to SIGSEGV or other unexpected errors.
+[2024-07-23 12:22:34,769][flwr][ERROR] - The actor died unexpectedly before finishing this task.
+	class_name: ClientAppActor
+	actor_id: 7f5562eb7a123b70b16ed86301000000
+	pid: 15189
+	namespace: 455da279-86f9-4022-aa95-b7ce976902ad
+	ip: 127.0.0.1
+The actor is dead because its worker process has died. Worker exit type: SYSTEM_ERROR Worker exit detail: Worker unexpectedly exits with a connection error code 2. End of file. There are some potential root causes. (1) The process is killed by SIGKILL by OOM killer due to high memory usage. (2) ray stop --force is called. (3) The worker is crashed unexpectedly due to SIGSEGV or other unexpected errors.
+[2024-07-23 12:22:34,769][flwr][WARNING] - Pool size: 0
+[2024-07-23 12:22:34,770][flwr][ERROR] - The actor died unexpectedly before finishing this task.
+	class_name: ClientAppActor
+	actor_id: b5b2084310aabe55c6f4ddb601000000
+	pid: 15187
+	namespace: 455da279-86f9-4022-aa95-b7ce976902ad
+	ip: 127.0.0.1
+The actor is dead because its worker process has died. Worker exit type: SYSTEM_ERROR Worker exit detail: Worker unexpectedly exits with a connection error code 2. End of file. There are some potential root causes. (1) The process is killed by SIGKILL by OOM killer due to high memory usage. (2) ray stop --force is called. (3) The worker is crashed unexpectedly due to SIGSEGV or other unexpected errors.
+[2024-07-23 12:22:34,770][flwr][WARNING] - Actor(b5b2084310aabe55c6f4ddb601000000) will be remove from pool.
+[2024-07-23 12:22:34,770][flwr][ERROR] - ActorPool is empty!!!
+[2024-07-23 12:22:34,770][flwr][ERROR] - Traceback (most recent call last):
+  File "/Users/roccopiovardaro/Desktop/PythonProjects/pythonProject3/.venv/lib/python3.9/site-packages/flwr/simulation/ray_transport/ray_client_proxy.py", line 73, in _submit_job
+    out_mssg, updated_context = self.actor_pool.get_client_result(
+  File "/Users/roccopiovardaro/Desktop/PythonProjects/pythonProject3/.venv/lib/python3.9/site-packages/flwr/simulation/ray_transport/ray_actor.py", line 399, in get_client_result
+    return self._fetch_future_result(cid)
+  File "/Users/roccopiovardaro/Desktop/PythonProjects/pythonProject3/.venv/lib/python3.9/site-packages/flwr/simulation/ray_transport/ray_actor.py", line 289, in _fetch_future_result
+    raise ex
+  File "/Users/roccopiovardaro/Desktop/PythonProjects/pythonProject3/.venv/lib/python3.9/site-packages/flwr/simulation/ray_transport/ray_actor.py", line 280, in _fetch_future_result
+    res_cid, out_mssg, updated_context = ray.get(
+  File "/Users/roccopiovardaro/Desktop/PythonProjects/pythonProject3/.venv/lib/python3.9/site-packages/ray/_private/auto_init_hook.py", line 21, in auto_init_wrapper
+    return fn(*args, **kwargs)
+  File "/Users/roccopiovardaro/Desktop/PythonProjects/pythonProject3/.venv/lib/python3.9/site-packages/ray/_private/client_mode_hook.py", line 103, in wrapper
+    return func(*args, **kwargs)
+  File "/Users/roccopiovardaro/Desktop/PythonProjects/pythonProject3/.venv/lib/python3.9/site-packages/ray/_private/worker.py", line 2667, in get
+    values, debugger_breakpoint = worker.get_objects(object_refs, timeout=timeout)
+  File "/Users/roccopiovardaro/Desktop/PythonProjects/pythonProject3/.venv/lib/python3.9/site-packages/ray/_private/worker.py", line 866, in get_objects
+    raise value
+ray.exceptions.RayActorError: The actor died unexpectedly before finishing this task.
+	class_name: ClientAppActor
+	actor_id: b5b2084310aabe55c6f4ddb601000000
+	pid: 15187
+	namespace: 455da279-86f9-4022-aa95-b7ce976902ad
+	ip: 127.0.0.1
+The actor is dead because its worker process has died. Worker exit type: SYSTEM_ERROR Worker exit detail: Worker unexpectedly exits with a connection error code 2. End of file. There are some potential root causes. (1) The process is killed by SIGKILL by OOM killer due to high memory usage. (2) ray stop --force is called. (3) The worker is crashed unexpectedly due to SIGSEGV or other unexpected errors.
+
+[2024-07-23 12:22:34,770][flwr][ERROR] - The actor died unexpectedly before finishing this task.
+	class_name: ClientAppActor
+	actor_id: b5b2084310aabe55c6f4ddb601000000
+	pid: 15187
+	namespace: 455da279-86f9-4022-aa95-b7ce976902ad
+	ip: 127.0.0.1
+The actor is dead because its worker process has died. Worker exit type: SYSTEM_ERROR Worker exit detail: Worker unexpectedly exits with a connection error code 2. End of file. There are some potential root causes. (1) The process is killed by SIGKILL by OOM killer due to high memory usage. (2) ray stop --force is called. (3) The worker is crashed unexpectedly due to SIGSEGV or other unexpected errors.
