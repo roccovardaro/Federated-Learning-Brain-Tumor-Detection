@@ -25,8 +25,7 @@ class ClientFL(fl.client.NumPyClient):
 
 
 data = dataset.load_data()
-train_dataset, val_dataset, test_dataset = dataset.split_dataset(dataset=data, val_split=0.05, test_split=0.05,
-                                                                 dataset_size=253)
+train_dataset, val_dataset, test_dataset = dataset.split_dataset(dataset=data, val_split=0.05, test_split=0.05)
 
 os.environ["TF_CPP_MIN_LOG_LEVEL"] = "3"
 os.environ["GRPC_VERBOSITY"] = "NONE"

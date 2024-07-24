@@ -5,8 +5,7 @@ import tensorflow as tf
 img_height, img_width = 224, 224
 batch_size = 8
 dataset_dir = 'data'
-
-
+dataset_size=253
 def load_data():
     dataset = tf.keras.utils.image_dataset_from_directory(
         dataset_dir,
@@ -22,7 +21,7 @@ def load_data():
     return normalized_dataset
 
 
-def split_dataset(dataset, val_split, test_split, dataset_size):
+def split_dataset(dataset, val_split, test_split):
     """
     Divide il dataset in set di addestramento, validazione e test.
     """

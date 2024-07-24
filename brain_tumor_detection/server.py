@@ -21,7 +21,6 @@ strategy = fl.server.strategy.FedAvg(
     min_available_clients=2,
     initial_parameters=fl.common.ndarrays_to_parameters(get_model_parameters()),
     evaluate_metrics_aggregation_fn=evaluate_metrics_aggregation_fn
-
 )
 
 os.environ["TF_CPP_MIN_LOG_LEVEL"] = "3"
