@@ -31,6 +31,7 @@ def load_data(dataset_dir, img_height, img_width, batch_size, test_split=0.2, se
     return train_dataset, test_dataset
 
 
+#METODO N0N UTILIZZATO
 def partition_data(train_dataset, num_partitions, batch_size, val_ratio=0.1, seed=42):
     # Suddivide il training set in `num_partitions` partizioni
     train_partitions = []
@@ -43,7 +44,7 @@ def partition_data(train_dataset, num_partitions, batch_size, val_ratio=0.1, see
         partition = train_dataset.skip(start).take(end - start)
         train_partitions.append(partition)
 
-    # Crea dataloaders con supporto per train+val
+    # Suddivisione train_dataset in train e valutation
     trainloaders = []
     valloaders = []
 

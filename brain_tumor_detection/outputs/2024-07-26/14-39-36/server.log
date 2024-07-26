@@ -1,0 +1,28 @@
+[2024-07-26 14:39:36,184][flwr][INFO] - Starting Flower server, config: num_rounds=2, no round_timeout
+[2024-07-26 14:39:36,206][flwr][INFO] - Flower ECE: gRPC server running (2 rounds), SSL is disabled
+[2024-07-26 14:39:36,206][flwr][INFO] - [INIT]
+[2024-07-26 14:39:36,206][flwr][INFO] - Using initial global parameters provided by strategy
+[2024-07-26 14:39:36,206][flwr][INFO] - Evaluating initial global parameters
+[2024-07-26 14:39:36,206][flwr][INFO] - 
+[2024-07-26 14:39:36,206][flwr][INFO] - [ROUND 1]
+[2024-07-26 14:39:43,014][flwr][INFO] - configure_fit: strategy sampled 2 clients (out of 2)
+[2024-07-26 14:40:01,111][flwr][INFO] - aggregate_fit: received 2 results and 0 failures
+[2024-07-26 14:40:01,157][flwr][WARNING] - No fit_metrics_aggregation_fn provided
+[2024-07-26 14:40:01,161][flwr][INFO] - configure_evaluate: strategy sampled 2 clients (out of 2)
+[2024-07-26 14:40:02,116][flwr][INFO] - aggregate_evaluate: received 2 results and 0 failures
+[2024-07-26 14:40:02,117][flwr][INFO] - 
+[2024-07-26 14:40:02,117][flwr][INFO] - [ROUND 2]
+[2024-07-26 14:40:02,117][flwr][INFO] - configure_fit: strategy sampled 2 clients (out of 2)
+[2024-07-26 14:40:19,472][flwr][INFO] - aggregate_fit: received 2 results and 0 failures
+[2024-07-26 14:40:19,539][flwr][INFO] - configure_evaluate: strategy sampled 2 clients (out of 2)
+[2024-07-26 14:40:20,420][flwr][INFO] - aggregate_evaluate: received 2 results and 0 failures
+[2024-07-26 14:40:20,422][flwr][INFO] - 
+[2024-07-26 14:40:20,422][flwr][INFO] - [SUMMARY]
+[2024-07-26 14:40:20,422][flwr][INFO] - Run finished 2 round(s) in 44.21s
+[2024-07-26 14:40:20,423][flwr][INFO] - 	History (loss, distributed):
+[2024-07-26 14:40:20,423][flwr][INFO] - 		round 1: 0.5270569920539856
+[2024-07-26 14:40:20,423][flwr][INFO] - 		round 2: 0.45920005440711975
+[2024-07-26 14:40:20,423][flwr][INFO] - 	History (metrics, distributed, evaluate):
+[2024-07-26 14:40:20,423][flwr][INFO] - 	{'accuracy': [(1, 0.800000011920929), (2, 0.8600000143051147)],
+[2024-07-26 14:40:20,423][flwr][INFO] - 	 'loss': [(1, 0.5270569920539856), (2, 0.45920005440711975)]}
+[2024-07-26 14:40:20,423][flwr][INFO] - 

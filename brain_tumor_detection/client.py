@@ -1,12 +1,9 @@
+import logging
+
 import flwr as fl
 import dataset as dataset
 import model as model
 import os
-
-dataset_dir = "data"
-img_height, img_width = 224, 224
-num_clients = 3
-batch_size = 1
 
 
 class ClientFL(fl.client.NumPyClient):
@@ -26,17 +23,28 @@ class ClientFL(fl.client.NumPyClient):
     def evaluate(self, parameters, config):
         self.model.set_weights(parameters)
         loss, accuracy = self.model.evaluate(self.test_data)
-        return loss, len(self.test_data), {"accuracy": accuracy}
+
+        return loss, len(self.test_data), {"accuracy": accuracy, "loss": loss}
 
 
-train_set, test_set = dataset.load_data(dataset_dir=dataset_dir, img_height=img_height, img_width=img_width,
-                                        batch_size=1)
+def main():
+    dataset_dir = "data"  # si potrebbe passare il path del dataset diverso per ogni client in modo che ogni client gestisca un insieme diverso di campioni (VFL)
+    img_height, img_width = 224, 224
+    num_clients = 3
+    batch_size = 1
 
-os.environ["TF_CPP_MIN_LOG_LEVEL"] = "3"
-os.environ["GRPC_VERBOSITY"] = "NONE"
+    train_set, test_set = dataset.load_data(dataset_dir=dataset_dir, img_height=img_height, img_width=img_width,
+                                            batch_size=1)
 
-# Inizializza il cliente
-client = ClientFL(train_set, test_set)
+    os.environ["TF_CPP_MIN_LOG_LEVEL"] = "3"
+    os.environ["GRPC_VERBOSITY"] = "NONE"
 
-# Avvia il processo federato
-fl.client.start_client(server_address="localhost:8080", client=client.to_client(), grpc_max_message_length=536870912)
+    # Inizializza il cliente
+    client = ClientFL(train_set, test_set)
+
+    # Avvia il processo federato
+    fl.client.start_client(server_address="localhost:8080", client=client.to_client(),
+                           grpc_max_message_length=536870912)
+
+if __name__ == '__main__':
+    main()

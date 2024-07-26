@@ -1,6 +1,5 @@
 import tensorflow as tf
-import pydot as p
-from keras.src.utils import plot_model
+
 
 
 def create_model():
@@ -15,7 +14,7 @@ def create_model():
         tf.keras.layers.Conv2D(64, (3, 3), activation='relu'),
         tf.keras.layers.Flatten(),
         tf.keras.layers.Dense(64, activation='relu'),
-        tf.keras.layers.Dense(1, activation='sigmoid')  # Per la classificazione binaria
+        tf.keras.layers.Dense(1, activation='sigmoid')
     ])
     model.compile(optimizer='adam',
                   loss='binary_crossentropy',

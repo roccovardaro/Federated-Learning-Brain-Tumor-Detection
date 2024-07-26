@@ -1,12 +1,13 @@
-import numpy as np
-from matplotlib import pyplot as plt
+import hydra
+from omegaconf import DictConfig
 
 import model as mod
 import os
 import flwr as fl
+import result
 
 accuracy = []
-metrics2 = []
+loss = []
 
 
 def get_model_parameters():
@@ -18,45 +19,40 @@ def evaluate_metrics_aggregation_fn(metrics):
     """Aggrega le metriche di valutazione dai client."""
 
     accuracies = [m["accuracy"] for _, m in metrics]
+    losses = [m["loss"] for _, m in metrics]
     accuracy.append(sum(accuracies) / len(accuracies))
-    metrics2.append(metrics)
-    return {"accuracy": sum(accuracies) / len(accuracies)}
+    loss.append(sum(losses) / len(losses))
+    return {"accuracy": sum(accuracies) / len(accuracies), "loss": sum(losses) / len(losses)}
 
 
-# Definisci la strategia del server
-strategy = fl.server.strategy.FedAvg(
-    fraction_fit=1.0,
-    min_fit_clients=2,
-    min_available_clients=2,
-    initial_parameters=fl.common.ndarrays_to_parameters(get_model_parameters()),
-    evaluate_metrics_aggregation_fn=evaluate_metrics_aggregation_fn
-)
+def strategy_selection(fraction_fit: float, min_fit_clients: int, min_available_clients: int):
+    return fl.server.strategy.FedAvg(
+        fraction_fit=fraction_fit,
+        min_fit_clients=min_fit_clients,
+        min_available_clients=min_available_clients,
+        initial_parameters=fl.common.ndarrays_to_parameters(get_model_parameters()),
+        evaluate_metrics_aggregation_fn=evaluate_metrics_aggregation_fn)
 
-os.environ["TF_CPP_MIN_LOG_LEVEL"] = "3"
-os.environ["GRPC_VERBOSITY"] = "NONE"
 
-# Definisci la configurazione del server
-server_config = fl.server.ServerConfig(num_rounds=1)
+@hydra.main(config_path="conf", config_name="config_server", version_base=None)
+def main(cfg: DictConfig):
+    os.environ["TF_CPP_MIN_LOG_LEVEL"] = "3"
+    os.environ["GRPC_VERBOSITY"] = "NONE"
 
-# Avvia il server
-fl.server.start_server(
-    server_address="localhost:8080",
-    config=server_config,
-    strategy=strategy,
-    grpc_max_message_length=536870912  # 512 MB
-)
+    server_config = fl.server.ServerConfig(num_rounds=cfg.num_rounds)
+    # Avvia il server
+    fl.server.start_server(
+        server_address="localhost:8080",
+        config=server_config,
+        strategy=strategy_selection(cfg.fraction_fit, min_fit_clients=cfg.num_clients_per_round_fit,
+                                    min_available_clients=cfg.num_clients),
+        grpc_max_message_length=536870912  # 512 MB
+    )
 
-x = list(range(len(accuracy)))
+    print(accuracy)
+    print(loss)
+    result.plot_metrics(accuracy, loss, cfg.num_rounds)
 
-print(metrics2)
-# Creazione del grafico
-plt.plot(x, accuracy, marker='o', linestyle='-', color='b')
 
-# Aggiungere etichette e titolo
-plt.xlabel('round')
-plt.ylabel('accuracy')
-plt.title('Grafico accuracy')
-
-plt.xticks(np.arange(min(x), max(x) + 1, 1))
-# Mostrare il grafico
-plt.show()
+if __name__ == '__main__':
+    main()
