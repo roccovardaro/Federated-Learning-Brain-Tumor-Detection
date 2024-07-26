@@ -1,2 +1,4 @@
 cd 'brain_tumor_detection'
-python client.py
+
+client_id=$1
+python client.py "$1"

@@ -71,3 +71,7 @@ def prepare_dataset(num_partitions: int, batch_size: int, val_ratio: float = 0.1
     testloader = DataLoader(testset, batch_size=128)
 
     return trainloaders, valloaders, testloader
+
+if __name__ == '__main__':
+    trainloaders, valloaders, testloader= prepare_dataset(num_partitions=2,batch_size=1)
+    print(len(trainloaders))

@@ -3,11 +3,16 @@ import dataset as dataset
 import model as model
 import os
 
+dataset_dir = "data"
+img_height, img_width = 224, 224
+num_clients = 3
+batch_size = 1
+
+
 class ClientFL(fl.client.NumPyClient):
-    def __init__(self, train_data, val_data, test_data):
+    def __init__(self, train_data, test_data):
         self.model = model.create_model()  # Il modello è definito localmente
         self.train_data = train_data
-        self.val_data = val_data
         self.test_data = test_data
 
     def get_parameters(self):
@@ -15,7 +20,7 @@ class ClientFL(fl.client.NumPyClient):
 
     def fit(self, parameters, config):
         self.model.set_weights(parameters)
-        self.model.fit(self.train_data, validation_data=self.val_data, epochs=1)
+        self.model.fit(self.train_data, epochs=1)
         return self.model.get_weights(), len(self.train_data), {}
 
     def evaluate(self, parameters, config):
@@ -24,14 +29,14 @@ class ClientFL(fl.client.NumPyClient):
         return loss, len(self.test_data), {"accuracy": accuracy}
 
 
-data = dataset.load_data()
-train_dataset, val_dataset, test_dataset = dataset.split_dataset(dataset=data, val_split=0.05, test_split=0.05)
+train_set, test_set = dataset.load_data(dataset_dir=dataset_dir, img_height=img_height, img_width=img_width,
+                                        batch_size=1)
 
 os.environ["TF_CPP_MIN_LOG_LEVEL"] = "3"
 os.environ["GRPC_VERBOSITY"] = "NONE"
 
 # Inizializza il cliente
-client = ClientFL(train_dataset, val_dataset, test_dataset)
+client = ClientFL(train_set, test_set)
 
 # Avvia il processo federato
-fl.client.start_client(server_address="localhost:8080", client=client.to_client(),grpc_max_message_length=536870912)
+fl.client.start_client(server_address="localhost:8080", client=client.to_client(), grpc_max_message_length=536870912)

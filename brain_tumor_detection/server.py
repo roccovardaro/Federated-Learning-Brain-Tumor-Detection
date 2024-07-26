@@ -1,6 +1,12 @@
+import numpy as np
+from matplotlib import pyplot as plt
+
 import model as mod
 import os
 import flwr as fl
+
+accuracy = []
+metrics2 = []
 
 
 def get_model_parameters():
@@ -10,7 +16,10 @@ def get_model_parameters():
 
 def evaluate_metrics_aggregation_fn(metrics):
     """Aggrega le metriche di valutazione dai client."""
+
     accuracies = [m["accuracy"] for _, m in metrics]
+    accuracy.append(sum(accuracies) / len(accuracies))
+    metrics2.append(metrics)
     return {"accuracy": sum(accuracies) / len(accuracies)}
 
 
@@ -27,7 +36,7 @@ os.environ["TF_CPP_MIN_LOG_LEVEL"] = "3"
 os.environ["GRPC_VERBOSITY"] = "NONE"
 
 # Definisci la configurazione del server
-server_config = fl.server.ServerConfig(num_rounds=2)  # Ferma il server dopo 1 round
+server_config = fl.server.ServerConfig(num_rounds=1)
 
 # Avvia il server
 fl.server.start_server(
@@ -36,3 +45,18 @@ fl.server.start_server(
     strategy=strategy,
     grpc_max_message_length=536870912  # 512 MB
 )
+
+x = list(range(len(accuracy)))
+
+print(metrics2)
+# Creazione del grafico
+plt.plot(x, accuracy, marker='o', linestyle='-', color='b')
+
+# Aggiungere etichette e titolo
+plt.xlabel('round')
+plt.ylabel('accuracy')
+plt.title('Grafico accuracy')
+
+plt.xticks(np.arange(min(x), max(x) + 1, 1))
+# Mostrare il grafico
+plt.show()
