@@ -1,0 +1,48 @@
+[2024-07-27 15:06:22,460][flwr][INFO] - Starting Flower server, config: num_rounds=4, no round_timeout
+[2024-07-27 15:06:22,477][flwr][INFO] - Flower ECE: gRPC server running (4 rounds), SSL is disabled
+[2024-07-27 15:06:22,478][flwr][INFO] - [INIT]
+[2024-07-27 15:06:22,478][flwr][INFO] - Using initial global parameters provided by strategy
+[2024-07-27 15:06:22,478][flwr][INFO] - Evaluating initial global parameters
+[2024-07-27 15:06:22,481][flwr][INFO] - 
+[2024-07-27 15:06:22,481][flwr][INFO] - [ROUND 1]
+[2024-07-27 15:06:33,210][flwr][INFO] - configure_fit: strategy sampled 2 clients (out of 2)
+[2024-07-27 15:06:36,368][flwr][INFO] - aggregate_fit: received 2 results and 0 failures
+[2024-07-27 15:06:36,379][flwr][WARNING] - No fit_metrics_aggregation_fn provided
+[2024-07-27 15:06:36,380][flwr][INFO] - configure_evaluate: strategy sampled 2 clients (out of 2)
+[2024-07-27 15:06:36,698][flwr][INFO] - aggregate_evaluate: received 2 results and 0 failures
+[2024-07-27 15:06:36,698][flwr][INFO] - 
+[2024-07-27 15:06:36,698][flwr][INFO] - [ROUND 2]
+[2024-07-27 15:06:36,699][flwr][INFO] - configure_fit: strategy sampled 2 clients (out of 2)
+[2024-07-27 15:06:39,247][flwr][INFO] - aggregate_fit: received 2 results and 0 failures
+[2024-07-27 15:06:39,257][flwr][INFO] - configure_evaluate: strategy sampled 2 clients (out of 2)
+[2024-07-27 15:06:39,521][flwr][INFO] - aggregate_evaluate: received 2 results and 0 failures
+[2024-07-27 15:06:39,521][flwr][INFO] - 
+[2024-07-27 15:06:39,521][flwr][INFO] - [ROUND 3]
+[2024-07-27 15:06:39,521][flwr][INFO] - configure_fit: strategy sampled 2 clients (out of 2)
+[2024-07-27 15:06:42,243][flwr][INFO] - aggregate_fit: received 2 results and 0 failures
+[2024-07-27 15:06:42,253][flwr][INFO] - configure_evaluate: strategy sampled 2 clients (out of 2)
+[2024-07-27 15:06:42,509][flwr][INFO] - aggregate_evaluate: received 2 results and 0 failures
+[2024-07-27 15:06:42,510][flwr][INFO] - 
+[2024-07-27 15:06:42,510][flwr][INFO] - [ROUND 4]
+[2024-07-27 15:06:42,510][flwr][INFO] - configure_fit: strategy sampled 2 clients (out of 2)
+[2024-07-27 15:06:45,060][flwr][INFO] - aggregate_fit: received 2 results and 0 failures
+[2024-07-27 15:06:45,072][flwr][INFO] - configure_evaluate: strategy sampled 2 clients (out of 2)
+[2024-07-27 15:06:45,333][flwr][INFO] - aggregate_evaluate: received 2 results and 0 failures
+[2024-07-27 15:06:45,333][flwr][INFO] - 
+[2024-07-27 15:06:45,333][flwr][INFO] - [SUMMARY]
+[2024-07-27 15:06:45,333][flwr][INFO] - Run finished 4 round(s) in 22.85s
+[2024-07-27 15:06:45,334][flwr][INFO] - 	History (loss, distributed):
+[2024-07-27 15:06:45,334][flwr][INFO] - 		round 1: 0.38066211342811584
+[2024-07-27 15:06:45,334][flwr][INFO] - 		round 2: 0.35678815841674805
+[2024-07-27 15:06:45,334][flwr][INFO] - 		round 3: 0.3022659420967102
+[2024-07-27 15:06:45,334][flwr][INFO] - 		round 4: 0.25665712356567383
+[2024-07-27 15:06:45,334][flwr][INFO] - 	History (metrics, distributed, evaluate):
+[2024-07-27 15:06:45,334][flwr][INFO] - 	{'accuracy': [(1, 0.8888888955116272),
+[2024-07-27 15:06:45,334][flwr][INFO] - 	              (2, 0.8666666746139526),
+[2024-07-27 15:06:45,334][flwr][INFO] - 	              (3, 0.9111111164093018),
+[2024-07-27 15:06:45,334][flwr][INFO] - 	              (4, 0.9333333373069763)],
+[2024-07-27 15:06:45,334][flwr][INFO] - 	 'loss': [(1, 0.38066211342811584),
+[2024-07-27 15:06:45,334][flwr][INFO] - 	          (2, 0.35678815841674805),
+[2024-07-27 15:06:45,334][flwr][INFO] - 	          (3, 0.3022659420967102),
+[2024-07-27 15:06:45,334][flwr][INFO] - 	          (4, 0.25665712356567383)]}
+[2024-07-27 15:06:45,334][flwr][INFO] - 

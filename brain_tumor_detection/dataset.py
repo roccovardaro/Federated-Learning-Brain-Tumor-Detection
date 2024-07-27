@@ -1,5 +1,6 @@
 import tensorflow as tf
 from keras.src.layers import Rescaling
+from matplotlib import pyplot as plt
 
 
 def load_data(dataset_dir, img_height, img_width, batch_size, test_split=0.2, seed=42):
@@ -10,6 +11,7 @@ def load_data(dataset_dir, img_height, img_width, batch_size, test_split=0.2, se
         label_mode='binary',
         batch_size=batch_size,
         image_size=(img_height, img_width),
+        color_mode="grayscale",
         shuffle=True,
         seed=seed
     )
@@ -64,3 +66,23 @@ def partition_data(train_dataset, num_partitions, batch_size, val_ratio=0.1, see
         valloaders.append(val_loader)
 
     return trainloaders, valloaders
+
+
+def getFirstImagesfromBatch(num_batch: int, dataset):
+    # Il metodo take non consente l'accesso diretto, è necessario iterare
+    for batch_images, batch_labels in dataset.take(num_batch):
+        image_pixels = batch_images[0]
+        label_pixels = batch_labels[0]
+        # Il metodo .numpy() viene utilizzato per convertire un tensore di TensorFlow in un array NumPy
+        plt.imshow(image_pixels.numpy().squeeze(), cmap='gray')
+        plt.title(label_pixels.numpy().squeeze())
+        plt.axis('off')
+        plt.show()
+    # Restituisce i pixel ognuno incapsulato in un array
+
+
+if __name__ == '__main__':
+    train_dataset, test_dataset = load_data(dataset_dir="data", img_height=224, img_width=224, batch_size=8,
+                                            test_split=0.2)
+    print(train_dataset)
+    getFirstImagesfromBatch(num_batch=1, dataset=train_dataset)

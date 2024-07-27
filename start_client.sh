@@ -1,4 +1,5 @@
+# shellcheck disable=SC2164
 cd 'brain_tumor_detection'
 
-client_id=$1
-python client.py "$1"
+dataset_dir=$1
+python client.py "$dataset_dir"

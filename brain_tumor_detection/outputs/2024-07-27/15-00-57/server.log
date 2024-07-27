@@ -1,0 +1,29 @@
+[2024-07-27 15:00:57,272][flwr][INFO] - Starting Flower server, config: num_rounds=4, no round_timeout
+[2024-07-27 15:00:57,295][flwr][INFO] - Flower ECE: gRPC server running (4 rounds), SSL is disabled
+[2024-07-27 15:00:57,295][flwr][INFO] - [INIT]
+[2024-07-27 15:00:57,295][flwr][INFO] - Using initial global parameters provided by strategy
+[2024-07-27 15:00:57,295][flwr][INFO] - Evaluating initial global parameters
+[2024-07-27 15:00:57,295][flwr][INFO] - 
+[2024-07-27 15:00:57,295][flwr][INFO] - [ROUND 1]
+[2024-07-27 15:01:00,926][flwr][INFO] - configure_fit: strategy sampled 2 clients (out of 2)
+[2024-07-27 15:01:08,995][flwr][INFO] - aggregate_fit: received 2 results and 0 failures
+[2024-07-27 15:01:09,048][flwr][WARNING] - No fit_metrics_aggregation_fn provided
+[2024-07-27 15:01:09,050][flwr][INFO] - configure_evaluate: strategy sampled 2 clients (out of 2)
+[2024-07-27 15:01:09,706][flwr][INFO] - aggregate_evaluate: received 2 results and 0 failures
+[2024-07-27 15:01:09,706][flwr][INFO] - 
+[2024-07-27 15:01:09,706][flwr][INFO] - [ROUND 2]
+[2024-07-27 15:01:09,706][flwr][INFO] - configure_fit: strategy sampled 2 clients (out of 2)
+[2024-07-27 15:01:16,298][flwr][INFO] - aggregate_fit: received 2 results and 0 failures
+[2024-07-27 15:01:16,358][flwr][INFO] - configure_evaluate: strategy sampled 2 clients (out of 2)
+[2024-07-27 15:01:16,951][flwr][INFO] - aggregate_evaluate: received 2 results and 0 failures
+[2024-07-27 15:01:16,951][flwr][INFO] - 
+[2024-07-27 15:01:16,951][flwr][INFO] - [ROUND 3]
+[2024-07-27 15:01:16,951][flwr][INFO] - configure_fit: strategy sampled 2 clients (out of 2)
+[2024-07-27 15:01:23,767][flwr][INFO] - aggregate_fit: received 2 results and 0 failures
+[2024-07-27 15:01:23,831][flwr][INFO] - configure_evaluate: strategy sampled 2 clients (out of 2)
+[2024-07-27 15:01:24,575][flwr][INFO] - aggregate_evaluate: received 2 results and 0 failures
+[2024-07-27 15:01:24,576][flwr][INFO] - 
+[2024-07-27 15:01:24,576][flwr][INFO] - [ROUND 4]
+[2024-07-27 15:01:24,576][flwr][INFO] - configure_fit: strategy sampled 2 clients (out of 2)
+[2024-07-27 15:01:32,099][flwr][INFO] - aggregate_fit: received 2 results and 0 failures
+[2024-07-27 15:01:32,163][flwr][INFO] - configure_evaluate: strategy sampled 2 clients (out of 2)

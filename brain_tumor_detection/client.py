@@ -1,4 +1,5 @@
 import logging
+import sys
 
 import flwr as fl
 import dataset as dataset
@@ -27,14 +28,13 @@ class ClientFL(fl.client.NumPyClient):
         return loss, len(self.test_data), {"accuracy": accuracy, "loss": loss}
 
 
-def main():
-    dataset_dir = "data"  # si potrebbe passare il path del dataset diverso per ogni client in modo che ogni client gestisca un insieme diverso di campioni (VFL)
+def main(dataset_dir):
+    # si potrebbe passare il path del dataset diverso per ogni client in modo che ogni client gestisca un insieme diverso di campioni (VFL)
     img_height, img_width = 224, 224
-    num_clients = 3
-    batch_size = 1
+    batch_size = 8
 
     train_set, test_set = dataset.load_data(dataset_dir=dataset_dir, img_height=img_height, img_width=img_width,
-                                            batch_size=1)
+                                            batch_size=batch_size)
 
     os.environ["TF_CPP_MIN_LOG_LEVEL"] = "3"
     os.environ["GRPC_VERBOSITY"] = "NONE"
@@ -46,5 +46,7 @@ def main():
     fl.client.start_client(server_address="localhost:8080", client=client.to_client(),
                            grpc_max_message_length=536870912)
 
+
 if __name__ == '__main__':
-    main()
+    data_path = sys.argv[1]
+    main(data_path)

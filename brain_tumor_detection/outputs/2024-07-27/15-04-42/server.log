@@ -1,0 +1,59 @@
+[2024-07-27 15:04:42,618][flwr][INFO] - Starting Flower server, config: num_rounds=4, no round_timeout
+[2024-07-27 15:04:42,640][flwr][INFO] - Flower ECE: gRPC server running (4 rounds), SSL is disabled
+[2024-07-27 15:04:42,641][flwr][INFO] - [INIT]
+[2024-07-27 15:04:42,641][flwr][INFO] - Using initial global parameters provided by strategy
+[2024-07-27 15:04:42,641][flwr][INFO] - Evaluating initial global parameters
+[2024-07-27 15:04:42,641][flwr][INFO] - 
+[2024-07-27 15:04:42,641][flwr][INFO] - [ROUND 1]
+[2024-07-27 15:04:49,260][flwr][INFO] - configure_fit: strategy sampled 2 clients (out of 2)
+[2024-07-27 15:04:58,108][flwr][INFO] - aggregate_fit: received 2 results and 0 failures
+[2024-07-27 15:04:58,165][flwr][WARNING] - No fit_metrics_aggregation_fn provided
+[2024-07-27 15:04:58,168][flwr][INFO] - configure_evaluate: strategy sampled 4 clients (out of 4)
+[2024-07-27 15:05:09,949][flwr][INFO] - aggregate_evaluate: received 3 results and 1 failures
+[2024-07-27 15:05:09,950][flwr][INFO] - 
+[2024-07-27 15:05:09,950][flwr][INFO] - [ROUND 2]
+[2024-07-27 15:05:09,950][flwr][INFO] - configure_fit: strategy sampled 2 clients (out of 3)
+[2024-07-27 15:05:11,879][grpc._server][ERROR] - Exception iterating responses: 
+Traceback (most recent call last):
+  File "/Users/roccopiovardaro/Desktop/PythonProjects/Federated_Learning/.venv/lib/python3.9/site-packages/grpc/_server.py", line 654, in _take_response_from_response_iterator
+    return next(response_iterator), True
+  File "/Users/roccopiovardaro/Desktop/PythonProjects/Federated_Learning/.venv/lib/python3.9/site-packages/flwr/server/superlink/fleet/grpc_bidi/flower_service_servicer.py", line 117, in Join
+    ins_wrapper: InsWrapper = next(ins_wrapper_iterator)
+  File "/Users/roccopiovardaro/Desktop/PythonProjects/Federated_Learning/.venv/lib/python3.9/site-packages/flwr/server/superlink/fleet/grpc_bidi/grpc_bridge.py", line 165, in ins_wrapper_iterator
+    self._raise_if_closed()
+  File "/Users/roccopiovardaro/Desktop/PythonProjects/Federated_Learning/.venv/lib/python3.9/site-packages/flwr/server/superlink/fleet/grpc_bidi/grpc_bridge.py", line 81, in _raise_if_closed
+    raise GrpcBridgeClosed()
+flwr.server.superlink.fleet.grpc_bidi.grpc_bridge.GrpcBridgeClosed
+[2024-07-27 15:05:16,952][flwr][INFO] - aggregate_fit: received 2 results and 0 failures
+[2024-07-27 15:05:17,011][flwr][INFO] - configure_evaluate: strategy sampled 2 clients (out of 2)
+[2024-07-27 15:05:17,596][flwr][INFO] - aggregate_evaluate: received 2 results and 0 failures
+[2024-07-27 15:05:17,600][flwr][INFO] - 
+[2024-07-27 15:05:17,600][flwr][INFO] - [ROUND 3]
+[2024-07-27 15:05:17,600][flwr][INFO] - configure_fit: strategy sampled 2 clients (out of 2)
+[2024-07-27 15:05:24,110][flwr][INFO] - aggregate_fit: received 2 results and 0 failures
+[2024-07-27 15:05:24,170][flwr][INFO] - configure_evaluate: strategy sampled 2 clients (out of 2)
+[2024-07-27 15:05:24,745][flwr][INFO] - aggregate_evaluate: received 2 results and 0 failures
+[2024-07-27 15:05:24,745][flwr][INFO] - 
+[2024-07-27 15:05:24,745][flwr][INFO] - [ROUND 4]
+[2024-07-27 15:05:24,745][flwr][INFO] - configure_fit: strategy sampled 2 clients (out of 2)
+[2024-07-27 15:05:31,277][flwr][INFO] - aggregate_fit: received 2 results and 0 failures
+[2024-07-27 15:05:31,334][flwr][INFO] - configure_evaluate: strategy sampled 2 clients (out of 2)
+[2024-07-27 15:05:31,915][flwr][INFO] - aggregate_evaluate: received 2 results and 0 failures
+[2024-07-27 15:05:31,918][flwr][INFO] - 
+[2024-07-27 15:05:31,918][flwr][INFO] - [SUMMARY]
+[2024-07-27 15:05:31,918][flwr][INFO] - Run finished 4 round(s) in 49.27s
+[2024-07-27 15:05:31,918][flwr][INFO] - 	History (loss, distributed):
+[2024-07-27 15:05:31,919][flwr][INFO] - 		round 1: 0.46046696106592816
+[2024-07-27 15:05:31,919][flwr][INFO] - 		round 2: 0.3642960786819458
+[2024-07-27 15:05:31,919][flwr][INFO] - 		round 3: 0.3417370021343231
+[2024-07-27 15:05:31,919][flwr][INFO] - 		round 4: 0.23923367261886597
+[2024-07-27 15:05:31,919][flwr][INFO] - 	History (metrics, distributed, evaluate):
+[2024-07-27 15:05:31,919][flwr][INFO] - 	{'accuracy': [(1, 0.8222222328186035),
+[2024-07-27 15:05:31,919][flwr][INFO] - 	              (2, 0.8444444537162781),
+[2024-07-27 15:05:31,920][flwr][INFO] - 	              (3, 0.8444444537162781),
+[2024-07-27 15:05:31,920][flwr][INFO] - 	              (4, 0.8888888955116272)],
+[2024-07-27 15:05:31,920][flwr][INFO] - 	 'loss': [(1, 0.46046696106592816),
+[2024-07-27 15:05:31,920][flwr][INFO] - 	          (2, 0.3642960786819458),
+[2024-07-27 15:05:31,920][flwr][INFO] - 	          (3, 0.3417370021343231),
+[2024-07-27 15:05:31,920][flwr][INFO] - 	          (4, 0.23923367261886597)]}
+[2024-07-27 15:05:31,920][flwr][INFO] - 
