@@ -24,7 +24,6 @@ def create_model1():
     return model
 
 
-
 #MODELLO CON RIDOTTO NUMERO DI PARAMETRI
 def create_model2():
     model = tf.keras.Sequential([
@@ -45,6 +44,5 @@ def create_model2():
     return model
 
 
-
 def create_model():
-    return create_model2()
+    return create_model1()

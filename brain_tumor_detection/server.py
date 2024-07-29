@@ -23,11 +23,11 @@ def evaluate_metrics_aggregation_fn(metrics):
     loss.append(sum(losses) / len(losses))
     return {"accuracy": sum(accuracies) / len(accuracies), "loss": sum(losses) / len(losses)}
 
+
 @hydra.main(config_path="conf", config_name="config_server", version_base=None)
 def main(cfg: DictConfig):
     os.environ["TF_CPP_MIN_LOG_LEVEL"] = "3"
     os.environ["GRPC_VERBOSITY"] = "NONE"
-
 
     strategy = fl.server.strategy.FedAvg(
         fraction_fit=cfg.fraction_fit,
@@ -68,6 +68,7 @@ def main(cfg: DictConfig):
 
     # Visualizzare il grafico
     plt.show()
+
 
 if __name__ == '__main__':
     main()

@@ -1,5 +1,6 @@
-import logging
+
 import sys
+import time
 
 import flwr as fl
 import dataset as dataset
@@ -18,13 +19,15 @@ class ClientFL(fl.client.NumPyClient):
 
     def fit(self, parameters, config):
         self.model.set_weights(parameters)
-        self.model.fit(self.train_data, epochs=1)
+        start_time=time.time()
+        self.model.fit(self.train_data)
+        end_time=time.time()
+        print("tempo di addestramento", f"{end_time-start_time:.2f}")
         return self.model.get_weights(), len(self.train_data), {}
 
     def evaluate(self, parameters, config):
         self.model.set_weights(parameters)
         loss, accuracy = self.model.evaluate(self.test_data)
-
         return loss, len(self.test_data), {"accuracy": accuracy, "loss": loss}
 
 
@@ -32,7 +35,6 @@ def main(dataset_dir):
     # si potrebbe passare il path del dataset diverso per ogni client in modo che ogni client gestisca un insieme diverso di campioni (VFL)
     img_height, img_width = 224, 224
     batch_size = 8
-
     train_set, test_set = dataset.load_data(dataset_dir=dataset_dir, img_height=img_height, img_width=img_width,
                                             batch_size=batch_size)
 

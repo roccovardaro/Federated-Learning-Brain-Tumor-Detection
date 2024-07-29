@@ -1,5 +1,7 @@
 import pandas as pd
 from flwr.server.history import History
+
+
 class HistoryTransformer:
     def __init__(self, history: History):
         self.history = history
