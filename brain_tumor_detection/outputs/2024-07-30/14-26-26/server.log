@@ -1,0 +1,9 @@
+[2024-07-30 14:26:26,280][flwr][INFO] - Starting Flower server, config: num_rounds=2, no round_timeout
+[2024-07-30 14:26:26,306][flwr][INFO] - Flower ECE: gRPC server running (2 rounds), SSL is disabled
+[2024-07-30 14:26:26,306][flwr][INFO] - [INIT]
+[2024-07-30 14:26:26,306][flwr][INFO] - Using initial global parameters provided by strategy
+[2024-07-30 14:26:26,306][flwr][INFO] - Evaluating initial global parameters
+[2024-07-30 14:26:26,306][flwr][INFO] - 
+[2024-07-30 14:26:26,306][flwr][INFO] - [ROUND 1]
+[2024-07-30 14:26:38,802][flwr][INFO] - configure_fit: strategy sampled 2 clients (out of 2)
+[2024-07-30 14:26:49,848][flwr][INFO] - aggregate_fit: received 0 results and 2 failures

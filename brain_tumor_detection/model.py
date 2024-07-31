@@ -2,7 +2,7 @@ import tensorflow as tf
 
 
 #conv2d viene utilizzato per le convoluzioni
-def create_model1():
+def create_modelCNN1():
     model = tf.keras.Sequential([
         #Aggiunge uno strato di input al modello. Questo strato accetta immagini con dimensioni 224x224 pixel
         # e 1 canali di colore (RGB)
@@ -25,7 +25,7 @@ def create_model1():
 
 
 #MODELLO CON RIDOTTO NUMERO DI PARAMETRI
-def create_model2():
+def create_modelCNN2():
     model = tf.keras.Sequential([
         tf.keras.layers.Input(shape=(224, 224, 1)),  # Usa tf.keras.layers.Input
         tf.keras.layers.Conv2D(16, (3, 3), activation='relu'),
@@ -43,6 +43,5 @@ def create_model2():
                   metrics=['accuracy'])
     return model
 
-
-def create_model():
-    return create_model1()
+def create_modelCNN():
+    return create_modelCNN2()

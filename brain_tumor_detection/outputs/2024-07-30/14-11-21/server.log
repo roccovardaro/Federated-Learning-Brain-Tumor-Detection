@@ -1,0 +1,30 @@
+[2024-07-30 14:11:21,486][flwr][INFO] - Starting Flower server, config: num_rounds=2, no round_timeout
+[2024-07-30 14:11:21,539][flwr][INFO] - Flower ECE: gRPC server running (2 rounds), SSL is disabled
+[2024-07-30 14:11:21,539][flwr][INFO] - [INIT]
+[2024-07-30 14:11:21,539][flwr][INFO] - Using initial global parameters provided by strategy
+[2024-07-30 14:11:21,539][flwr][INFO] - Evaluating initial global parameters
+[2024-07-30 14:11:21,539][flwr][INFO] - 
+[2024-07-30 14:11:21,539][flwr][INFO] - [ROUND 1]
+[2024-07-30 14:11:25,810][flwr][INFO] - configure_fit: strategy sampled 2 clients (out of 2)
+[2024-07-30 14:11:33,845][flwr][INFO] - aggregate_fit: received 2 results and 0 failures
+[2024-07-30 14:11:33,897][flwr][WARNING] - No fit_metrics_aggregation_fn provided
+[2024-07-30 14:11:33,900][flwr][INFO] - configure_evaluate: strategy sampled 2 clients (out of 2)
+[2024-07-30 14:11:34,552][flwr][INFO] - aggregate_evaluate: received 2 results and 0 failures
+[2024-07-30 14:11:34,552][flwr][INFO] - 
+[2024-07-30 14:11:34,552][flwr][INFO] - [ROUND 2]
+[2024-07-30 14:11:34,552][flwr][INFO] - configure_fit: strategy sampled 2 clients (out of 2)
+[2024-07-30 14:11:41,858][flwr][INFO] - aggregate_fit: received 2 results and 0 failures
+[2024-07-30 14:11:41,974][absl][WARNING] - You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. 
+[2024-07-30 14:11:42,039][flwr][INFO] - configure_evaluate: strategy sampled 2 clients (out of 2)
+[2024-07-30 14:11:42,652][flwr][INFO] - aggregate_evaluate: received 2 results and 0 failures
+[2024-07-30 14:11:42,654][flwr][INFO] - 
+[2024-07-30 14:11:42,654][flwr][INFO] - [SUMMARY]
+[2024-07-30 14:11:42,654][flwr][INFO] - Run finished 2 round(s) in 21.11s
+[2024-07-30 14:11:42,654][flwr][INFO] - 	History (loss, distributed):
+[2024-07-30 14:11:42,654][flwr][INFO] - 		round 1: 0.39077216386795044
+[2024-07-30 14:11:42,654][flwr][INFO] - 		round 2: 0.3605386018753052
+[2024-07-30 14:11:42,654][flwr][INFO] - 	History (metrics, distributed, evaluate):
+[2024-07-30 14:11:42,654][flwr][INFO] - 	{'accuracy': [(1, 0.8444444537162781), (2, 0.8666666746139526)],
+[2024-07-30 14:11:42,654][flwr][INFO] - 	 'loss': [(1, 0.39077216386795044), (2, 0.3605386018753052)]}
+[2024-07-30 14:11:42,654][flwr][INFO] - 
+[2024-07-30 14:11:50,451][absl][WARNING] - Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.

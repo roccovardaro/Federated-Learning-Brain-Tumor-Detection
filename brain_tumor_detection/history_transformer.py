@@ -1,5 +1,6 @@
 import pandas as pd
 from flwr.server.history import History
+from matplotlib import ticker, pyplot as plt
 
 
 class HistoryTransformer:
@@ -26,3 +27,20 @@ class HistoryTransformer:
         df_combined = pd.DataFrame(combined_data)
 
         return df_combined
+
+
+def plot_metrics(df: pd.DataFrame):
+    df.plot(x='epoch', y=['accuracy', 'loss'], kind='line')
+    # Impostare l'asse X per mostrare solo numeri interi
+    ax = plt.gca()
+    ax.xaxis.set_major_locator(ticker.MultipleLocator(1))
+
+    # Etichette e titolo
+    plt.xlabel('Epoch')
+    plt.ylabel('Metrics')
+    plt.title('Training Metrics per Round')
+    plt.legend()
+    plt.grid(True)
+
+    # Visualizzare il grafico
+    plt.show()

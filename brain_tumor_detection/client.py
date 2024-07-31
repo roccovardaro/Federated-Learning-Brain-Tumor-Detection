@@ -10,7 +10,7 @@ import os
 
 class ClientFL(fl.client.NumPyClient):
     def __init__(self, train_data, test_data):
-        self.model = model.create_model()  # Il modello è definito localmente
+        self.model = model.create_modelCNN()  # Il modello è definito localmente
         self.train_data = train_data
         self.test_data = test_data
 
@@ -34,7 +34,7 @@ class ClientFL(fl.client.NumPyClient):
 def main(dataset_dir):
     # si potrebbe passare il path del dataset diverso per ogni client in modo che ogni client gestisca un insieme diverso di campioni (VFL)
     img_height, img_width = 224, 224
-    batch_size = 8
+    batch_size = 64
     train_set, test_set = dataset.load_data(dataset_dir=dataset_dir, img_height=img_height, img_width=img_width,
                                             batch_size=batch_size)
 

@@ -1,7 +1,7 @@
 
 
 num_rounds: 4 # number of FL rounds in the experiment
-num_clients: 2 # number of total clients available (this is also the number of partitions we need to create)
+num_clients: 3 # number of total clients available (this is also the number of partitions we need to create)
 batch_size: 20 # batch size to use by clients during training
 fraction_fit: 0.3
 num_clients_per_round_fit: 2 # number of clients to involve in each fit round (fit  round = clients receive the model from the server and do local training)

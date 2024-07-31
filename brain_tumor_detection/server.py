@@ -1,22 +1,18 @@
 import hydra
-from matplotlib import pyplot as plt, ticker
 from omegaconf import DictConfig
 import model as mod
 import os
 import flwr as fl
 import history_transformer as ht
+import customStrategy as customStr
+import tensorflow as tf
+import dataset as ds
 
 accuracy = []
 loss = []
 
 
-def get_model_parameters():
-    model = mod.create_model()
-    return model.get_weights()
-
-
 def evaluate_metrics_aggregation_fn(metrics):
-    """Aggrega le metriche di valutazione dai client."""
     accuracies = [m["accuracy"] for _, m in metrics]
     losses = [m["loss"] for _, m in metrics]
     accuracy.append(sum(accuracies) / len(accuracies))
@@ -29,45 +25,41 @@ def main(cfg: DictConfig):
     os.environ["TF_CPP_MIN_LOG_LEVEL"] = "3"
     os.environ["GRPC_VERBOSITY"] = "NONE"
 
-    strategy = fl.server.strategy.FedAvg(
-        fraction_fit=cfg.fraction_fit,
-        min_fit_clients=cfg.num_clients_per_round_fit,
-        min_available_clients=cfg.num_clients,
-        initial_parameters=fl.common.ndarrays_to_parameters(get_model_parameters()),
-        evaluate_metrics_aggregation_fn=evaluate_metrics_aggregation_fn)
+    # 1. create model
+    model = mod.create_modelCNN()
 
+    # 2. define strategy
+
+    stategy = customStr.CustomFedAvg(fraction_fit=cfg.fraction_fit, min_fit_clients=cfg.num_clients_per_round_fit,
+                                     min_available_clients=cfg.num_clients,
+                                     initial_parameters=fl.common.ndarrays_to_parameters(model.get_weights()),
+                                     evaluate_metrics_aggregation_fn=evaluate_metrics_aggregation_fn,
+                                     num_rounds=cfg.num_rounds)
+
+    # 3. configure Server
     server_config = fl.server.ServerConfig(num_rounds=cfg.num_rounds)
 
-    # Avvia il server
     history = fl.server.start_server(
         server_address="localhost:8080",
         config=server_config,
-        strategy=strategy,
+        strategy=stategy,
         grpc_max_message_length=536870912  # 512 MB
     )
 
-    #analysis of results
+    # 4. analysis of results
 
     transformer = ht.HistoryTransformer(history)
     df = transformer.to_dataframe()
-    # Creare il grafico
-    plt.figure(figsize=(10, 6))
-    plt.plot(df['epoch'], df['accuracy'], label='Accuracy')
-    plt.plot(df['epoch'], df['loss'], label='Loss')
 
-    # Impostare l'asse X per mostrare solo numeri interi
-    ax = plt.gca()
-    ax.xaxis.set_major_locator(ticker.MultipleLocator(1))
+    ht.plot_metrics(df)
 
-    # Etichette e titolo
-    plt.xlabel('Epoch')
-    plt.ylabel('Metrics')
-    plt.title('Training Metrics per Round')
-    plt.legend()
-    plt.grid(True)
+    # 5. evaluate model from server
+    model_after_FL = tf.keras.models.load_model("model_final_98.h5")
 
-    # Visualizzare il grafico
-    plt.show()
+    _, test_set = ds.load_data(dataset_dir='Brain_Tumor_DataSet', img_width=224, img_height=224, batch_size=64)
+    loss, accuracy = model_after_FL.evaluate(test_set)
+    print('loss', loss)
+    print('accuracy', accuracy)
 
 
 if __name__ == '__main__':
