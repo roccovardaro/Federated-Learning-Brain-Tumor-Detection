@@ -2,8 +2,6 @@ import flwr as fl
 from typing import List, Tuple, Dict
 import model as mod
 
-#accuracy = []
-#loss = []
 
 def create_model_from_weights(weights: List):
     # Crea un modello dalle pesi aggregati (da implementare in base alla tua architettura di modello)
@@ -16,7 +14,7 @@ def save_model(parameters: fl.common.Parameters):
     # Converti i parametri in ndarray e imposta i pesi del modello
     weights = fl.common.parameters_to_ndarrays(parameters)
     model = create_model_from_weights(weights)
-    model.save("model_final_98.h5")
+    model.save("model_final.h5")
 
 
 class CustomFedAvg(fl.server.strategy.FedAvg):
@@ -37,16 +35,10 @@ class CustomFedAvg(fl.server.strategy.FedAvg):
             self, rnd: int, results: List[Tuple[fl.server.client_manager.ClientProxy, fl.common.FitRes]],
             failures: List[BaseException]
     ) -> Tuple[fl.common.Parameters, Dict[str, fl.common.Scalar]]:
-        # Chiamare il metodo aggregate_fit della classe base (FedAvg)
+        # Chiamaro il metodo aggregate_fit della classe base (FedAvg)
         aggregated_parameters, aggregated_metrics = super().aggregate_fit(rnd, results, failures)
 
-        # Estrarre e memorizzare l'accuratezza e la perdita dalle metriche aggregate
-        #f 'accuracy' in aggregated_metrics:
-         #   self.accuracy.append(aggregated_metrics['accuracy'])
-        #if 'loss' in aggregated_metrics:
-        #    self.loss.append(aggregated_metrics['loss'])
-
-        # Se è l'ultimo round, salva il modello
+        # all'ultimo round salvo il modello
         if rnd == self.num_rounds:
             save_model(aggregated_parameters)
 

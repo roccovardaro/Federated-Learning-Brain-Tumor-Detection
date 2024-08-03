@@ -42,5 +42,4 @@ model_after_FL = tf.keras.models.load_model("model_final_98.h5")
 #train_set, test_set = ds.load_data('data', 224, 224, 32)
 #model_after_FL.evaluate(train_set)
 
-
 predict_image('data_example/foto2.png')

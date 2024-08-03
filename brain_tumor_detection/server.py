@@ -54,7 +54,7 @@ def main(cfg: DictConfig):
     ht.plot_metrics(df)
 
     # 5. evaluate model from server
-    model_after_FL = tf.keras.models.load_model("model_final_98.h5")
+    model_after_FL = tf.keras.models.load_model("model_final.h5")
 
     _, test_set = ds.load_data(dataset_dir='Brain_Tumor_DataSet', img_width=224, img_height=224, batch_size=64)
     loss, accuracy = model_after_FL.evaluate(test_set)
