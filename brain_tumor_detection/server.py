@@ -56,7 +56,7 @@ def main(cfg: DictConfig):
     # 5. evaluate model from server
     model_after_FL = tf.keras.models.load_model("model_final.h5")
 
-    _, test_set = ds.load_data(dataset_dir='Brain_Tumor_DataSet', img_width=224, img_height=224, batch_size=64)
+    test_set,_ = ds.load_data(dataset_dir='datasets/data_test_server', img_width=224, img_height=224, test_split=0, batch_size=32)
     loss, accuracy = model_after_FL.evaluate(test_set)
     print('loss', loss)
     print('accuracy', accuracy)

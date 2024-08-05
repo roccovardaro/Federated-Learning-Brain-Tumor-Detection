@@ -5,18 +5,18 @@ import dataset as ds
 import model as md
 
 #Analisi prestazioni con il primo modello
-train_set, test_set = ds.load_data(dataset_dir='Brain_Tumor_DataSet', img_width=224, img_height=224, batch_size=64)
+train_set, test_set = ds.load_data(dataset_dir='datasets/brain_tumor_dataset', img_width=224, img_height=224, batch_size=64)
 
-model1 = md.create_modelCNN1()
+#model1 = md.create_modelCNN1()
 
-result1 = model1.fit(train_set, epochs=5)
+#result1 = model1.fit(train_set, epochs=5)
 
-df1 = DataFrame(result1.history).plot()
-plt.show()
+#df1 = DataFrame(result1.history).plot()
+#plt.show()
 
-loss1, accuracy1 = model1.evaluate(test_set)
-print("loss1", loss1)
-print("accuracy1", accuracy1)
+#loss1, accuracy1 = model1.evaluate(test_set)
+#print("loss1", loss1)
+#print("accuracy1", accuracy1)
 
 #Analisi prestazioni con il secondo modello
 
@@ -30,3 +30,16 @@ plt.show()
 loss2, accuracy2 = model2.evaluate(test_set)
 print("loss2", loss2)
 print("accuracy2", accuracy2)
+
+#Analisi prestazioni con il terzo modello
+
+model3 = md.create_modelCNN3()
+
+result3 = model3.fit(train_set, epochs=5)
+
+df3 = DataFrame(result3.history).plot()
+plt.show()
+
+loss3, accuracy3 = model3.evaluate(test_set)
+print("loss3", loss3)
+print("accuracy3", accuracy3)

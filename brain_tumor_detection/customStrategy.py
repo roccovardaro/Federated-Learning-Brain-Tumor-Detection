@@ -11,10 +11,10 @@ def create_model_from_weights(weights: List):
 
 
 def save_model(parameters: fl.common.Parameters):
-    # Converti i parametri in ndarray e imposta i pesi del modello
+    # Converto i parametri in ndarray e imposta i pesi del modello
     weights = fl.common.parameters_to_ndarrays(parameters)
     model = create_model_from_weights(weights)
-    model.save("model_final.h5")
+    model.save("trained_models/model_final.h5")
 
 
 class CustomFedAvg(fl.server.strategy.FedAvg):
@@ -28,8 +28,6 @@ class CustomFedAvg(fl.server.strategy.FedAvg):
             evaluate_metrics_aggregation_fn=evaluate_metrics_aggregation_fn,
         )
         self.num_rounds = num_rounds  # Imposta il numero di round
-        self.accuracy = []  # Lista per memorizzare l'accuratezza
-        self.loss = []  # Lista per memorizzare la perdita
 
     def aggregate_fit(
             self, rnd: int, results: List[Tuple[fl.server.client_manager.ClientProxy, fl.common.FitRes]],

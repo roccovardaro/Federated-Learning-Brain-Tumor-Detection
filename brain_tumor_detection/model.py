@@ -43,5 +43,26 @@ def create_modelCNN2():
                   metrics=['accuracy'])
     return model
 
+def create_modelCNN3():
+    model = tf.keras.Sequential([
+        tf.keras.layers.Input(shape=(224,224,1)),
+        tf.keras.layers.Conv2D(8, (3, 3), activation='relu'),
+        tf.keras.layers.MaxPooling2D((2, 2)),
+        tf.keras.layers.Conv2D(16, (3, 3), activation='relu'),
+        tf.keras.layers.MaxPooling2D((2, 2)),
+        tf.keras.layers.Conv2D(16, (3, 3), activation='relu'),
+        tf.keras.layers.Flatten(),
+        tf.keras.layers.Dense(16, activation='relu'),
+        tf.keras.layers.Dense(1, activation='sigmoid')
+    ])
+    model.compile(optimizer='adam',
+                  loss='binary_crossentropy',
+                  metrics=['accuracy'])
+    return model
+
+
 def create_modelCNN():
     return create_modelCNN2()
+
+if __name__ == '__main__':
+    create_modelCNN2().summary()
