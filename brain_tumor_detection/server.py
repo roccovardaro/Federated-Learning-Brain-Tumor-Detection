@@ -1,3 +1,5 @@
+import datetime
+
 import hydra
 from omegaconf import DictConfig
 import model as mod
@@ -54,7 +56,9 @@ def main(cfg: DictConfig):
     ht.plot_metrics(df)
 
     # 5. evaluate model from server
-    model_after_FL = tf.keras.models.load_model("model_final.h5")
+    x = datetime.datetime.now()
+    date = str(x.day) + '_' + str(x.month) + '_' + str(x.year)
+    model_after_FL = tf.keras.models.load_model("trained_models/model_final_"+date+".h5")
 
     test_set,_ = ds.load_data(dataset_dir='datasets/data_test_server', img_width=224, img_height=224, test_split=0, batch_size=32)
     loss, accuracy = model_after_FL.evaluate(test_set)

@@ -1,3 +1,5 @@
+import datetime
+
 import flwr as fl
 from typing import List, Tuple, Dict
 import model as mod
@@ -12,9 +14,11 @@ def create_model_from_weights(weights: List):
 
 def save_model(parameters: fl.common.Parameters):
     # Converto i parametri in ndarray e imposta i pesi del modello
+    x = datetime.datetime.now()
+    date = str(x.day) + '_' + str(x.month) + '_' + str(x.year)
     weights = fl.common.parameters_to_ndarrays(parameters)
     model = create_model_from_weights(weights)
-    model.save("trained_models/model_final.h5")
+    model.save("trained_models/model_final_"+date+".h5")
 
 
 class CustomFedAvg(fl.server.strategy.FedAvg):

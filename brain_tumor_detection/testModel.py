@@ -37,15 +37,18 @@ def predict_image(image_path, name_model):
     print(value_prediction(predictions))
 
 
-if __name__ == '__main__':
+def main():
+    model_name = "trained_models/model_final.h5"
+    dataset_path = 'datasets/data_test_server'
 
-    model_name = "model_final_99.h5"
-    dataset_path = 'datasets/brain_tumor_dataset2'
-
-    model_after_FL = tf.keras.models.load_model(model_name)
+    model = tf.keras.models.load_model(model_name)
     test_set, _ = ds.load_data(dataset_path, 224, 224, test_split=0, batch_size=32)
-    model_after_FL.evaluate(test_set)
+    model.evaluate(test_set)
 
     #predict single image
-    image_path = 'datasets/brain_tumor_dataset2/Healthy/no8.jpg'
-    predict_image(image_path=image_path, name_model=model_name)
+    #imagePath = 'datasets/brain_tumor_dataset2/Healthy/no8.jpg'
+    #predict_image(image_path=imagePath, name_model=model_name)
+
+
+if __name__ == '__main__':
+    main()

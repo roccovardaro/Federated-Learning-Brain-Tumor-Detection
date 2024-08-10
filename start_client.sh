@@ -1,6 +1,8 @@
 # shellcheck disable=SC2164
 numero_casuale=$(awk "BEGIN {print $RANDOM/32767}")
 
+cd  "brain_tumor_detection"
+
 dataset_dir1="datasets/brain_tumor_dataset"
 dataset_dir2="datasets/brain_tumor_dataset2"
 

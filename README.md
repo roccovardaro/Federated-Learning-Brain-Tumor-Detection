@@ -4,7 +4,8 @@ Lo script _**start_client.sh**_ è uno script di shell progettato per avviare il
 
 **Model.py:** definisce l'architettura del modello di deep learning per la classificazione delle immagini. Implementa una rete neurale convoluzionale (CNN).
 
-**server.py:** rappresenta il server per il FL.
+**server.py:** rappresenta il server per il FL. Dopo il processo FL, il server carica il modello addestrato e utilizza un
+dataset per valutare la bontà del modello.
 
 **_server.sh:_** avvia il server eseguendo server.py, rendendolo pronto a ricevere connessioni dal client.
 
