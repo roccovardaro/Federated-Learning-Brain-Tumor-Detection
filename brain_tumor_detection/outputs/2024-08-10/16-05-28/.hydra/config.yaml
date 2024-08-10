@@ -1,0 +1,5 @@
+num_rounds: 5
+num_clients: 1
+batch_size: 20
+fraction_fit: 0.3
+num_clients_per_round_fit: 1

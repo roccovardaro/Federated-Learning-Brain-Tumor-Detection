@@ -1,0 +1,59 @@
+[2024-08-10 13:21:35,418][flwr][INFO] - Starting Flower server, config: num_rounds=5, no round_timeout
+[2024-08-10 13:21:35,436][flwr][INFO] - Flower ECE: gRPC server running (5 rounds), SSL is disabled
+[2024-08-10 13:21:35,440][flwr][INFO] - [INIT]
+[2024-08-10 13:21:35,440][flwr][INFO] - Using initial global parameters provided by strategy
+[2024-08-10 13:21:35,440][flwr][INFO] - Evaluating initial global parameters
+[2024-08-10 13:21:35,440][flwr][INFO] - 
+[2024-08-10 13:21:35,440][flwr][INFO] - [ROUND 1]
+[2024-08-10 13:21:39,984][flwr][INFO] - configure_fit: strategy sampled 3 clients (out of 3)
+[2024-08-10 13:22:28,990][flwr][INFO] - aggregate_fit: received 3 results and 0 failures
+[2024-08-10 13:22:29,005][flwr][WARNING] - No fit_metrics_aggregation_fn provided
+[2024-08-10 13:22:29,006][flwr][INFO] - configure_evaluate: strategy sampled 3 clients (out of 3)
+[2024-08-10 13:22:33,022][flwr][INFO] - aggregate_evaluate: received 3 results and 0 failures
+[2024-08-10 13:22:33,022][flwr][INFO] - 
+[2024-08-10 13:22:33,022][flwr][INFO] - [ROUND 2]
+[2024-08-10 13:22:33,022][flwr][INFO] - configure_fit: strategy sampled 3 clients (out of 3)
+[2024-08-10 13:23:20,131][flwr][INFO] - aggregate_fit: received 3 results and 0 failures
+[2024-08-10 13:23:20,148][flwr][INFO] - configure_evaluate: strategy sampled 3 clients (out of 3)
+[2024-08-10 13:23:24,190][flwr][INFO] - aggregate_evaluate: received 3 results and 0 failures
+[2024-08-10 13:23:24,190][flwr][INFO] - 
+[2024-08-10 13:23:24,190][flwr][INFO] - [ROUND 3]
+[2024-08-10 13:23:24,190][flwr][INFO] - configure_fit: strategy sampled 3 clients (out of 3)
+[2024-08-10 13:24:10,188][flwr][INFO] - aggregate_fit: received 3 results and 0 failures
+[2024-08-10 13:24:10,208][flwr][INFO] - configure_evaluate: strategy sampled 3 clients (out of 3)
+[2024-08-10 13:24:14,317][flwr][INFO] - aggregate_evaluate: received 3 results and 0 failures
+[2024-08-10 13:24:14,317][flwr][INFO] - 
+[2024-08-10 13:24:14,317][flwr][INFO] - [ROUND 4]
+[2024-08-10 13:24:14,317][flwr][INFO] - configure_fit: strategy sampled 3 clients (out of 3)
+[2024-08-10 13:24:59,722][flwr][INFO] - aggregate_fit: received 3 results and 0 failures
+[2024-08-10 13:24:59,744][flwr][INFO] - configure_evaluate: strategy sampled 3 clients (out of 3)
+[2024-08-10 13:25:03,804][flwr][INFO] - aggregate_evaluate: received 3 results and 0 failures
+[2024-08-10 13:25:03,804][flwr][INFO] - 
+[2024-08-10 13:25:03,804][flwr][INFO] - [ROUND 5]
+[2024-08-10 13:25:03,804][flwr][INFO] - configure_fit: strategy sampled 3 clients (out of 3)
+[2024-08-10 13:25:50,215][flwr][INFO] - aggregate_fit: received 3 results and 0 failures
+[2024-08-10 13:25:50,271][absl][WARNING] - You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. 
+[2024-08-10 13:25:50,305][flwr][INFO] - configure_evaluate: strategy sampled 3 clients (out of 3)
+[2024-08-10 13:25:54,321][flwr][INFO] - aggregate_evaluate: received 3 results and 0 failures
+[2024-08-10 13:25:54,322][flwr][INFO] - 
+[2024-08-10 13:25:54,322][flwr][INFO] - [SUMMARY]
+[2024-08-10 13:25:54,322][flwr][INFO] - Run finished 5 round(s) in 258.88s
+[2024-08-10 13:25:54,322][flwr][INFO] - 	History (loss, distributed):
+[2024-08-10 13:25:54,322][flwr][INFO] - 		round 1: 0.39866937696933746
+[2024-08-10 13:25:54,322][flwr][INFO] - 		round 2: 0.23987371195107698
+[2024-08-10 13:25:54,322][flwr][INFO] - 		round 3: 0.16442171949893236
+[2024-08-10 13:25:54,322][flwr][INFO] - 		round 4: 0.09826598479412496
+[2024-08-10 13:25:54,322][flwr][INFO] - 		round 5: 0.059231207123957574
+[2024-08-10 13:25:54,322][flwr][INFO] - 	History (metrics, distributed, evaluate):
+[2024-08-10 13:25:54,323][flwr][INFO] - 	{'accuracy': [(1, 0.8137055436770121),
+[2024-08-10 13:25:54,323][flwr][INFO] - 	              (2, 0.9101123213768005),
+[2024-08-10 13:25:54,323][flwr][INFO] - 	              (3, 0.949619988600413),
+[2024-08-10 13:25:54,323][flwr][INFO] - 	              (4, 0.9748669068018595),
+[2024-08-10 13:25:54,323][flwr][INFO] - 	              (5, 0.9845466216405233)],
+[2024-08-10 13:25:54,323][flwr][INFO] - 	 'loss': [(1, 0.38469017545382184),
+[2024-08-10 13:25:54,323][flwr][INFO] - 	          (2, 0.21983070174853006),
+[2024-08-10 13:25:54,323][flwr][INFO] - 	          (3, 0.15327642858028412),
+[2024-08-10 13:25:54,323][flwr][INFO] - 	          (4, 0.08695376167694728),
+[2024-08-10 13:25:54,323][flwr][INFO] - 	          (5, 0.052329543977975845)]}
+[2024-08-10 13:25:54,323][flwr][INFO] - 
+[2024-08-10 13:26:08,473][absl][WARNING] - Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.

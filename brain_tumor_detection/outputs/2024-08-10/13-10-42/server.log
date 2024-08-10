@@ -1,0 +1,29 @@
+[2024-08-10 13:10:42,119][flwr][INFO] - Starting Flower server, config: num_rounds=2, no round_timeout
+[2024-08-10 13:10:42,154][flwr][INFO] - Flower ECE: gRPC server running (2 rounds), SSL is disabled
+[2024-08-10 13:10:42,154][flwr][INFO] - [INIT]
+[2024-08-10 13:10:42,154][flwr][INFO] - Using initial global parameters provided by strategy
+[2024-08-10 13:10:42,154][flwr][INFO] - Evaluating initial global parameters
+[2024-08-10 13:10:42,154][flwr][INFO] - 
+[2024-08-10 13:10:42,154][flwr][INFO] - [ROUND 1]
+[2024-08-10 13:10:46,778][flwr][INFO] - configure_fit: strategy sampled 2 clients (out of 2)
+[2024-08-10 13:11:23,039][flwr][INFO] - aggregate_fit: received 2 results and 0 failures
+[2024-08-10 13:11:23,051][flwr][WARNING] - No fit_metrics_aggregation_fn provided
+[2024-08-10 13:11:23,052][flwr][INFO] - configure_evaluate: strategy sampled 2 clients (out of 2)
+[2024-08-10 13:11:26,409][flwr][INFO] - aggregate_evaluate: received 2 results and 0 failures
+[2024-08-10 13:11:26,409][flwr][INFO] - 
+[2024-08-10 13:11:26,409][flwr][INFO] - [ROUND 2]
+[2024-08-10 13:11:26,409][flwr][INFO] - configure_fit: strategy sampled 2 clients (out of 2)
+[2024-08-10 13:12:02,010][flwr][INFO] - aggregate_fit: received 2 results and 0 failures
+[2024-08-10 13:12:02,055][absl][WARNING] - You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. 
+[2024-08-10 13:12:02,077][flwr][INFO] - configure_evaluate: strategy sampled 2 clients (out of 2)
+[2024-08-10 13:12:05,667][flwr][INFO] - aggregate_evaluate: received 2 results and 0 failures
+[2024-08-10 13:12:05,668][flwr][INFO] - 
+[2024-08-10 13:12:05,668][flwr][INFO] - [SUMMARY]
+[2024-08-10 13:12:05,668][flwr][INFO] - Run finished 2 round(s) in 83.51s
+[2024-08-10 13:12:05,668][flwr][INFO] - 	History (loss, distributed):
+[2024-08-10 13:12:05,668][flwr][INFO] - 		round 1: 0.3857346177101135
+[2024-08-10 13:12:05,668][flwr][INFO] - 		round 2: 0.24731230735778809
+[2024-08-10 13:12:05,668][flwr][INFO] - 	History (metrics, distributed, evaluate):
+[2024-08-10 13:12:05,668][flwr][INFO] - 	{'accuracy': [(1, 0.8198614120483398), (2, 0.8995380997657776)],
+[2024-08-10 13:12:05,668][flwr][INFO] - 	 'loss': [(1, 0.3857346177101135), (2, 0.24731230735778809)]}
+[2024-08-10 13:12:05,669][flwr][INFO] - 

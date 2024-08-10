@@ -5,7 +5,8 @@ import dataset as ds
 import model as md
 
 #Analisi prestazioni con il primo modello
-train_set, test_set = ds.load_data(dataset_dir='datasets/brain_tumor_dataset', img_width=224, img_height=224, batch_size=64)
+train_set, val_set, test_set = ds.load_data_with_validation(dataset_dir='datasets/brain_tumor_dataset', img_width=224,
+                                                            img_height=224, batch_size=64)
 
 #model1 = md.create_modelCNN1()
 
@@ -20,25 +21,22 @@ train_set, test_set = ds.load_data(dataset_dir='datasets/brain_tumor_dataset', i
 
 #Analisi prestazioni con il secondo modello
 
-model2 = md.create_modelCNN2()
+#model2 = md.create_modelCNN2()
 
-result2 = model2.fit(train_set, epochs=5)
+#result2 = model2.fit(train_set, epochs=5)
 
-df2 = DataFrame(result2.history).plot()
-plt.show()
+#df2 = DataFrame(result2.history).plot()
+#plt.show()
 
-loss2, accuracy2 = model2.evaluate(test_set)
-print("loss2", loss2)
-print("accuracy2", accuracy2)
+#loss2, accuracy2 = model2.evaluate(test_set)
+#print("loss2", loss2)
+#print("accuracy2", accuracy2)
 
 #Analisi prestazioni con il terzo modello
 
 model3 = md.create_modelCNN3()
 
-result3 = model3.fit(train_set, epochs=5)
-
-df3 = DataFrame(result3.history).plot()
-plt.show()
+result3 = model3.fit(train_set, epochs=5, validation_data=val_set)
 
 loss3, accuracy3 = model3.evaluate(test_set)
 print("loss3", loss3)

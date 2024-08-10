@@ -9,6 +9,7 @@ import history_transformer as ht
 import customStrategy as customStr
 import tensorflow as tf
 import dataset as ds
+import pandas as pd
 
 accuracy = []
 loss = []
@@ -52,6 +53,7 @@ def main(cfg: DictConfig):
 
     transformer = ht.HistoryTransformer(history)
     df = transformer.to_dataframe()
+    #df.to_csv("dataframe_history/history_FL_nc_"+str(cfg.num_clients_per_round_fit)+".csv", index=False)
 
     ht.plot_metrics(df)
 
@@ -61,9 +63,12 @@ def main(cfg: DictConfig):
     model_after_FL = tf.keras.models.load_model("trained_models/model_final_"+date+".h5")
 
     test_set,_ = ds.load_data(dataset_dir='datasets/data_test_server', img_width=224, img_height=224, test_split=0, batch_size=32)
-    loss, accuracy = model_after_FL.evaluate(test_set)
-    print('loss', loss)
-    print('accuracy', accuracy)
+    loss_test_server, accuracy_test_server = model_after_FL.evaluate(test_set)
+    print('loss', loss_test_server)
+    print('accuracy_test_server', accuracy_test_server)
+
+    print(accuracy)
+    print(loss)
 
 
 if __name__ == '__main__':

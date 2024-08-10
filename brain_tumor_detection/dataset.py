@@ -33,6 +33,41 @@ def load_data(dataset_dir, img_height, img_width, batch_size, test_split=0.2, se
     return train_dataset, test_dataset
 
 
+def load_data_with_validation(dataset_dir, img_height, img_width, batch_size, val_split=0.1, test_split=0.2, seed=42):
+    # Carica l'intero dataset
+    full_dataset = tf.keras.utils.image_dataset_from_directory(
+        dataset_dir,
+        labels='inferred',
+        label_mode='binary',
+        batch_size=batch_size,
+        image_size=(img_height, img_width),
+        color_mode="grayscale",
+        shuffle=True,
+        seed=seed
+    )
+
+    # Calcola il numero totale di batch
+    total_batches = tf.data.experimental.cardinality(full_dataset).numpy()
+
+    # Calcola il numero di batch per il test set e il validation set
+    test_size = int(test_split * total_batches)
+    val_size = int(val_split * total_batches)
+    train_size = total_batches - test_size - val_size
+
+    # Suddivide il dataset in training set, validation set e test set
+    train_dataset = full_dataset.take(train_size)
+    val_dataset = full_dataset.skip(train_size).take(val_size)
+    test_dataset = full_dataset.skip(train_size + val_size)
+
+    # Normalizzazione delle immagini
+    normalization_layer = Rescaling(1.0 / 255)
+    train_dataset = train_dataset.map(lambda x, y: (normalization_layer(x), y))
+    val_dataset = val_dataset.map(lambda x, y: (normalization_layer(x), y))
+    test_dataset = test_dataset.map(lambda x, y: (normalization_layer(x), y))
+
+    return train_dataset, val_dataset, test_dataset
+
+
 #METODO N0N UTILIZZATO
 def partition_data(train_dataset, num_partitions, batch_size, val_ratio=0.1, seed=42):
     # Suddivide il training set in `num_partitions` partizioni
