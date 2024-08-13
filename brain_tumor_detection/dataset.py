@@ -5,6 +5,7 @@ from matplotlib import pyplot as plt
 
 def load_data(dataset_dir, img_height, img_width, batch_size, test_split=0.2, seed=42):
     # Carica l'intero dataset
+
     full_dataset = tf.keras.utils.image_dataset_from_directory(
         dataset_dir,
         labels='inferred',
@@ -45,6 +46,8 @@ def load_data_with_validation(dataset_dir, img_height, img_width, batch_size, va
         shuffle=True,
         seed=seed
     )
+
+
 
     # Calcola il numero totale di batch
     total_batches = tf.data.experimental.cardinality(full_dataset).numpy()
@@ -119,5 +122,4 @@ def getFirstImagesfromBatch(num_batch: int, dataset):
 if __name__ == '__main__':
     train_dataset, test_dataset = load_data(dataset_dir="datasets/data_test_server", img_height=224, img_width=224, batch_size=8,
                                             test_split=0.2)
-    print(train_dataset)
     getFirstImagesfromBatch(num_batch=1, dataset=train_dataset)

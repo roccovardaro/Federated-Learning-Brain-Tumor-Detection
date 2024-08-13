@@ -1,4 +1,5 @@
 import tensorflow as tf
+from tensorflow.keras.layers import Conv2D, MaxPooling2D,Input,Flatten,Dense,Dropout
 
 
 #conv2d viene utilizzato per le convoluzioni
@@ -27,15 +28,17 @@ def create_modelCNN1():
 #MODELLO CON RIDOTTO NUMERO DI PARAMETRI
 def create_modelCNN2():
     model = tf.keras.Sequential([
-        tf.keras.layers.Input(shape=(224, 224, 1)),  # Usa tf.keras.layers.Input
-        tf.keras.layers.Conv2D(16, (3, 3), activation='relu'),
-        tf.keras.layers.MaxPooling2D((2, 2)),
-        tf.keras.layers.Conv2D(32, (3, 3), activation='relu'),
-        tf.keras.layers.MaxPooling2D((2, 2)),
-        tf.keras.layers.Conv2D(32, (3, 3), activation='relu'),
-        tf.keras.layers.Flatten(),
-        tf.keras.layers.Dense(32, activation='relu'),
-        tf.keras.layers.Dense(1, activation='sigmoid')
+        Input(shape=(224, 224, 1)),  # Usa tf.keras.layers.Input
+        Conv2D(16, (3, 3), activation='relu'),
+        MaxPooling2D((2, 2)),
+        Conv2D(32, (3, 3), activation='relu'),
+        MaxPooling2D((2, 2)),
+        Conv2D(32, (3, 3), activation='relu'),
+        MaxPooling2D((2, 2)),
+        Flatten(),
+        Dense(32, activation='relu'),
+        Dropout(0.5),
+        Dense(1, activation='sigmoid')
         # Unità singola con attivazione sigmoid per classificazione binaria
     ])
     model.compile(optimizer='adam',

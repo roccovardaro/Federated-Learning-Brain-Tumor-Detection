@@ -1,8 +1,6 @@
 import numpy as np
 import tensorflow as tf
 from PIL import Image
-import dataset as ds
-
 
 def preprocess_image(image_path, target_size):
     # Carica l'immagine
@@ -23,9 +21,9 @@ def preprocess_image(image_path, target_size):
 
 def value_prediction(predictions):
     if predictions[0][0] > 0.5:
-        print('Healthy', predictions[0][0])
+        print('Healthy')
     else:
-        print('Brain Tumor', predictions[0][0])
+        print('Brain Tumor')
     return
 
 
@@ -38,16 +36,17 @@ def predict_image(image_path, name_model):
 
 
 def main():
-    model_name = "trained_models/model_final.h5"
+
+    model_name = "trained_models/model_final_99.h5"
     dataset_path = 'datasets/data_test_server'
 
-    model = tf.keras.models.load_model(model_name)
-    test_set, _ = ds.load_data(dataset_path, 224, 224, test_split=0, batch_size=32)
-    model.evaluate(test_set)
+    #model = tf.keras.models.load_model(model_name)
+    #àtest_set, _ = ds.load_data(dataset_path, 224, 224, test_split=0, batch_size=32)
+    #model.evaluate(test_set)
 
     #predict single image
-    #imagePath = 'datasets/brain_tumor_dataset2/Healthy/no8.jpg'
-    #predict_image(image_path=imagePath, name_model=model_name)
+    imagePath = 'datasets/data_example/foto6.png'
+    predict_image(image_path=imagePath, name_model=model_name)
 
 
 if __name__ == '__main__':

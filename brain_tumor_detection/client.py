@@ -1,7 +1,6 @@
 import sys
 
 import flwr as fl
-import pandas as pd
 
 import dataset as dataset
 import model as model
@@ -25,9 +24,8 @@ class ClientFL(fl.client.NumPyClient):
         history = self.model.fit(self.train_data, validation_data=self.val_data)
 
         self.count_round += 1
-        history_df = pd.DataFrame(history.history)
-        history_df.to_csv('history_fit_id_' + str(self.id_client) + '_round_' + str(self.count_round) + '.csv',
-                          index=False)
+        #history_df = pd.DataFrame(history.history)
+        #history_df.to_csv('history_fit_id_' + str(self.id_client) + '_round_' + str(self.count_round) + '.csv',index=False)
 
         return self.model.get_weights(), len(self.train_data), {}
 
@@ -50,6 +48,7 @@ def main(dataset_dir, id_client):
 
     # Inizializza il cliente
     client = ClientFL(train_set, val_set, test_set, id_client)
+
 
     # Avvia il processo federato
     fl.client.start_client(server_address="localhost:8080", client=client.to_client(),

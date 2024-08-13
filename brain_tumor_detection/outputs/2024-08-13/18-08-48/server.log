@@ -1,0 +1,61 @@
+[2024-08-13 18:08:48,372][flwr][INFO] - Starting Flower server, config: num_rounds=4, no round_timeout
+[2024-08-13 18:08:48,407][flwr][INFO] - Flower ECE: gRPC server running (4 rounds), SSL is disabled
+[2024-08-13 18:08:48,407][flwr][INFO] - [INIT]
+[2024-08-13 18:08:48,407][flwr][INFO] - Using initial global parameters provided by strategy
+[2024-08-13 18:08:48,407][flwr][INFO] - Evaluating initial global parameters
+[2024-08-13 18:08:48,407][flwr][INFO] - 
+[2024-08-13 18:08:48,407][flwr][INFO] - [ROUND 1]
+[2024-08-13 18:09:06,042][flwr][INFO] - configure_fit: strategy sampled 2 clients (out of 2)
+[2024-08-13 18:09:13,361][grpc._server][ERROR] - Exception iterating responses: 
+Traceback (most recent call last):
+  File "/Users/roccopiovardaro/Desktop/PythonProjects/Federated_Learning/.venv/lib/python3.9/site-packages/grpc/_server.py", line 654, in _take_response_from_response_iterator
+    return next(response_iterator), True
+  File "/Users/roccopiovardaro/Desktop/PythonProjects/Federated_Learning/.venv/lib/python3.9/site-packages/flwr/server/superlink/fleet/grpc_bidi/flower_service_servicer.py", line 117, in Join
+    ins_wrapper: InsWrapper = next(ins_wrapper_iterator)
+  File "/Users/roccopiovardaro/Desktop/PythonProjects/Federated_Learning/.venv/lib/python3.9/site-packages/flwr/server/superlink/fleet/grpc_bidi/grpc_bridge.py", line 165, in ins_wrapper_iterator
+    self._raise_if_closed()
+  File "/Users/roccopiovardaro/Desktop/PythonProjects/Federated_Learning/.venv/lib/python3.9/site-packages/flwr/server/superlink/fleet/grpc_bidi/grpc_bridge.py", line 81, in _raise_if_closed
+    raise GrpcBridgeClosed()
+flwr.server.superlink.fleet.grpc_bidi.grpc_bridge.GrpcBridgeClosed
+[2024-08-13 18:09:47,490][flwr][INFO] - aggregate_fit: received 2 results and 0 failures
+[2024-08-13 18:09:47,494][flwr][WARNING] - No fit_metrics_aggregation_fn provided
+[2024-08-13 18:09:47,495][flwr][INFO] - configure_evaluate: strategy sampled 2 clients (out of 2)
+[2024-08-13 18:09:50,889][flwr][INFO] - aggregate_evaluate: received 2 results and 0 failures
+[2024-08-13 18:09:50,889][flwr][INFO] - 
+[2024-08-13 18:09:50,889][flwr][INFO] - [ROUND 2]
+[2024-08-13 18:09:50,890][flwr][INFO] - configure_fit: strategy sampled 2 clients (out of 2)
+[2024-08-13 18:10:27,672][flwr][INFO] - aggregate_fit: received 2 results and 0 failures
+[2024-08-13 18:10:27,678][flwr][INFO] - configure_evaluate: strategy sampled 2 clients (out of 2)
+[2024-08-13 18:10:31,162][flwr][INFO] - aggregate_evaluate: received 2 results and 0 failures
+[2024-08-13 18:10:31,163][flwr][INFO] - 
+[2024-08-13 18:10:31,163][flwr][INFO] - [ROUND 3]
+[2024-08-13 18:10:31,163][flwr][INFO] - configure_fit: strategy sampled 2 clients (out of 2)
+[2024-08-13 18:11:07,963][flwr][INFO] - aggregate_fit: received 2 results and 0 failures
+[2024-08-13 18:11:07,970][flwr][INFO] - configure_evaluate: strategy sampled 2 clients (out of 2)
+[2024-08-13 18:11:11,388][flwr][INFO] - aggregate_evaluate: received 2 results and 0 failures
+[2024-08-13 18:11:11,388][flwr][INFO] - 
+[2024-08-13 18:11:11,388][flwr][INFO] - [ROUND 4]
+[2024-08-13 18:11:11,388][flwr][INFO] - configure_fit: strategy sampled 2 clients (out of 2)
+[2024-08-13 18:11:48,260][flwr][INFO] - aggregate_fit: received 2 results and 0 failures
+[2024-08-13 18:11:48,295][absl][WARNING] - You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. 
+[2024-08-13 18:11:48,321][flwr][INFO] - configure_evaluate: strategy sampled 2 clients (out of 2)
+[2024-08-13 18:11:51,738][flwr][INFO] - aggregate_evaluate: received 2 results and 0 failures
+[2024-08-13 18:11:51,739][flwr][INFO] - 
+[2024-08-13 18:11:51,739][flwr][INFO] - [SUMMARY]
+[2024-08-13 18:11:51,739][flwr][INFO] - Run finished 4 round(s) in 183.33s
+[2024-08-13 18:11:51,739][flwr][INFO] - 	History (loss, distributed):
+[2024-08-13 18:11:51,739][flwr][INFO] - 		round 1: 0.4725836515426636
+[2024-08-13 18:11:51,739][flwr][INFO] - 		round 2: 0.3120119571685791
+[2024-08-13 18:11:51,739][flwr][INFO] - 		round 3: 0.2459172159433365
+[2024-08-13 18:11:51,739][flwr][INFO] - 		round 4: 0.17857524752616882
+[2024-08-13 18:11:51,739][flwr][INFO] - 	History (metrics, distributed, evaluate):
+[2024-08-13 18:11:51,739][flwr][INFO] - 	{'accuracy': [(1, 0.8002309203147888),
+[2024-08-13 18:11:51,739][flwr][INFO] - 	              (2, 0.8752886652946472),
+[2024-08-13 18:11:51,739][flwr][INFO] - 	              (3, 0.9099307060241699),
+[2024-08-13 18:11:51,739][flwr][INFO] - 	              (4, 0.931870698928833)],
+[2024-08-13 18:11:51,740][flwr][INFO] - 	 'loss': [(1, 0.4725836515426636),
+[2024-08-13 18:11:51,740][flwr][INFO] - 	          (2, 0.3120119571685791),
+[2024-08-13 18:11:51,740][flwr][INFO] - 	          (3, 0.2459172159433365),
+[2024-08-13 18:11:51,740][flwr][INFO] - 	          (4, 0.17857524752616882)]}
+[2024-08-13 18:11:51,740][flwr][INFO] - 
+[2024-08-13 18:12:32,843][absl][WARNING] - Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.
