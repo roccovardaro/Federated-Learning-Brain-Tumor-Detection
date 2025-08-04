@@ -53,7 +53,7 @@ def main(cfg: DictConfig):
 
     transformer = HistoryTransformer(history)
     df = transformer.to_dataframe()
-    #df.to_csv("dataframe_history/history_FL_nc_"+str(cfg.num_clients_per_round_fit)+".csv", index=False)
+    df.to_csv("dataframe_history/history_FL_nc_"+str(cfg.num_clients_per_round_fit)+".csv", index=False)
 
     plot_metrics(df)
 

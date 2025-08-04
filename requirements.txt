@@ -1,0 +1,5 @@
+flwr
+numpy
+pandas
+matplotlib
+tensorflow ; sys_platform != 'darwin'
