@@ -12,8 +12,6 @@ This project implements a Federated Learning (FL) system for brain tumor detecti
 │   ├── brain_tumor_dataset/
 │   ├── brain_tumor_dataset2/
 │   └── data_test_server/
-│
-├── outputs/                      # Outputs per date and time
 │   
 │
 ├── src/
@@ -21,11 +19,14 @@ This project implements a Federated Learning (FL) system for brain tumor detecti
 │   │   └── config_server.yaml   # Central config file
 │   ├── dataframe_history/       # CSV logs per client
 │   ├── model/                   # Model definitions and test
-│   │   └── trained_models/      # Saved models
-│   └── utils/                   # Server/client and utilities
-│       ├── server.py
-│       ├── client.py
-│       └── customStrategy.py
+        └── model.py
+        └── testModel.py
+│   │── trained_models/          # Saved models
+|   ├── server.py
+│   ├── client.py
+│   └── customStrategy.py
+│   └── utils/                  
+│       
 │
 ├── start_server.ps1             # Launch server (PowerShell)
 ├── start_client.ps1             # Launch one client
@@ -101,8 +102,6 @@ This project defines a **custom strategy class** that extends Flower’s default
 - 📈 PNG plots per client and global training
 - 📁 CSV logs in `dataframe_history/`
 - 💾 Trained models in `trained_models/`
-- 🗃️ Output organized by date/time in `outputs/`
-
 ---
 
 ## 🔒 Privacy & Security
